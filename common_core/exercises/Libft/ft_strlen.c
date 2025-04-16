@@ -6,11 +6,11 @@
 /*   By: jopedro4 <jopedro4@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 20:37:36 by jopedro4          #+#    #+#             */
-/*   Updated: 2025/04/10 18:31:30 by jopedro4         ###   ########.fr       */
+/*   Updated: 2025/04/12 16:02:03 by jopedro4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <stdio.h>
+#include "libft.h"
 
 int	ft_strlen(const char *c)
 {

@@ -1,39 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jopedro4 <jopedro4@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/11 23:59:08 by jopedro4          #+#    #+#             */
-/*   Updated: 2025/04/12 16:40:10 by jopedro4         ###   ########.fr       */
+/*   Created: 2025/04/15 18:18:25 by jopedro4          #+#    #+#             */
+/*   Updated: 2025/04/16 12:57:40 by jopedro4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+int	ft_atoi(const char *nptr)
 {
 	int	i;
+	int	negative;
+	int	result;
 
 	i = 0;
-	if (!(char)c)
-		return ((char *)&s[ft_strlen(s)]);
-	while (s[i])
+	negative = 1;
+	result = 0;
+	while (nptr[i] == ' ' || (nptr[i] >= 9 && nptr[i] <= 13))
+		i++;
+	if (nptr[i] == '-' || nptr[i] == '+')
 	{
-		if (s[i] == (char)c)
-			return ((char *)&s[i]);
+		if (nptr[i] == '-')
+			negative *= -1;
 		i++;
 	}
-	return (NULL);
+	while (nptr[i] >= '0' && nptr[i] <= '9')
+	{
+		result = (result * 10) + (nptr[i] - '0');
+		i++;
+	}
+	return (result * negative);
 }
 
-/*int	main(void)
+/*int main(void)
 {
-	const char s[] = "the cake is a lie !\0I'm hidden lol\r\n";
-	int	i;
-	char *f;
-	i = ' ';
-	f = ft_strchr(s, i);
-	printf("the %s has %s", s, f);
+	const char nptr[] = "--213";
+
+	printf("%i,%i", ft_atoi(nptr), atoi(nptr));
 }*/

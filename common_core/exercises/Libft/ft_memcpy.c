@@ -10,9 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <stdio.h>
-#include <stddef.h>
-#define MAX_CHAR 100
+#include "libft.h"
 
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
@@ -35,6 +33,7 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 
 /*int	main(void)
 {
+	size_t	MAX_CHAR = 100;	
 	char	first_str[MAX_CHAR] = "HELLO";
 	char	second_str[MAX_CHAR] = "GOODBYE";
 

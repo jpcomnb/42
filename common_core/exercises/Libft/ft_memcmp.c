@@ -1,39 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jopedro4 <jopedro4@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/11 23:59:08 by jopedro4          #+#    #+#             */
-/*   Updated: 2025/04/12 16:40:10 by jopedro4         ###   ########.fr       */
+/*   Created: 2025/04/14 19:38:39 by jopedro4          #+#    #+#             */
+/*   Updated: 2025/04/14 20:40:07 by jopedro4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	int	i;
+	size_t			i;
+	unsigned char	*temp1;
+	unsigned char	*temp2;
 
+	temp1 = (unsigned char *)s1;
+	temp2 = (unsigned char *)s2;
 	i = 0;
-	if (!(char)c)
-		return ((char *)&s[ft_strlen(s)]);
-	while (s[i])
+	if (n == 0)
+		return (0);
+	while (n > 0)
 	{
-		if (s[i] == (char)c)
-			return ((char *)&s[i]);
+		if (temp1[i] != temp2[i])
+			break ;
+		n--;
+		if (n == 0)
+			break ;
 		i++;
 	}
-	return (NULL);
+	return (temp1[i] - temp2[i]);
 }
 
 /*int	main(void)
 {
-	const char s[] = "the cake is a lie !\0I'm hidden lol\r\n";
-	int	i;
-	char *f;
-	i = ' ';
-	f = ft_strchr(s, i);
-	printf("the %s has %s", s, f);
+	unsigned char s1[] = "teste";
+	unsigned char s2[] = "test";
+
+	int	f;
+	size_t n;
+
+	n = 10;
+	f = ft_memcmp(s1, s2, n);
+	printf("%d",f );
 }*/

@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jopedro4 <jopedro4@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/11 23:59:08 by jopedro4          #+#    #+#             */
-/*   Updated: 2025/04/12 16:40:10 by jopedro4         ###   ########.fr       */
+/*   Created: 2025/04/12 18:57:58 by jopedro4          #+#    #+#             */
+/*   Updated: 2025/04/14 19:19:41 by jopedro4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
-	if (!(char)c)
-		return ((char *)&s[ft_strlen(s)]);
-	while (s[i])
+	while (i < n)
 	{
-		if (s[i] == (char)c)
-			return ((char *)&s[i]);
+		if (((unsigned char *)s)[i] == (unsigned char)c)
+		{
+			return (&((unsigned char *)s)[i]);
+		}
 		i++;
 	}
 	return (NULL);
@@ -30,10 +30,11 @@ char	*ft_strchr(const char *s, int c)
 
 /*int	main(void)
 {
-	const char s[] = "the cake is a lie !\0I'm hidden lol\r\n";
-	int	i;
-	char *f;
-	i = ' ';
-	f = ft_strchr(s, i);
-	printf("the %s has %s", s, f);
+	unsigned char	s[] = "hello muchacho";
+	int	c;
+	size_t n;
+
+	c = ' ';
+	n = '7';
+	printf("found %s in string %s", (char *)ft_memchr(s, c, n), s);
 }*/
