@@ -6,13 +6,13 @@
 /*   By: jopedro4 <jopedro4@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 16:40:16 by jopedro4          #+#    #+#             */
-/*   Updated: 2025/04/16 19:12:46 by jopedro4         ###   ########.fr       */
+/*   Updated: 2025/04/17 16:53:18 by jopedro4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char *ft_strjoin(char const *s, char const *s2)
+char	*ft_strjoin(char const *s, char const *s2)
 {
 	char	*ptr;
 	size_t	s_l;
