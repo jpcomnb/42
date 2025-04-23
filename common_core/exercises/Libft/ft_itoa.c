@@ -6,13 +6,13 @@
 /*   By: jopedro4 <jopedro4@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 23:14:39 by jopedro4          #+#    #+#             */
-/*   Updated: 2025/04/18 22:18:43 by jopedro4         ###   ########.fr       */
+/*   Updated: 2025/04/19 17:17:33 by jopedro4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_count_digit(int	n)
+static int	ft_count_digit(int n)
 {
 	int	count;
 

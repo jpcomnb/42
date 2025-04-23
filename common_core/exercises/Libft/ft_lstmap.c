@@ -1,38 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jopedro4 <jopedro4@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/10 18:43:19 by jopedro4          #+#    #+#             */
-/*   Updated: 2025/04/23 19:06:40 by jopedro4         ###   ########.fr       */
+/*   Created: 2025/04/23 23:30:12 by jopedro4          #+#    #+#             */
+/*   Updated: 2025/04/24 00:24:14 by jopedro4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#define MAX_BUFFER 100
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	if ((!dest && !src))
+	void	*temp;
+	t_list	*node;
+	t_list	*lst2;
+
+	if (!lst && !f && !del)
+		return (NULL);
+	lst2 = NULL;
+	while (lst)
 	{
-		return (dest);
+		temp = f(lst->content);
+		node = ft_lstnew(temp);
+		if (!node)
+		{
+			del(temp);
+			ft_lstclear(&lst2, del);
+			return (NULL);
+		}
+		ft_lstadd_back(&lst2, node);
+		lst = lst->next;
 	}
-	if (dest > src)
-	{
-		while (n--)
-			((unsigned char *)dest)[n] = ((unsigned char *)src)[n];
-		return (dest);
-	}
-	ft_memcpy(dest, src, n);
-	return (dest);
+	return (lst2);
 }
-
-/*int	main(void)
-{
-	char	string1[MAX_BUFFER] = "lorem ipsum dolor sit amet";
-
-	ft_memmove(string1 +1, "consectetuer", 5);
-	printf("%s", string1);
-}*/

@@ -1,33 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jopedro4 <jopedro4@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: jopedro4 <jopedro4@student.42porto.co      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/07 18:12:20 by jopedro4          #+#    #+#             */
-/*   Updated: 2025/04/21 21:49:13 by jopedro4         ###   ########.fr       */
+/*   Created: 2025/04/20 18:36:09 by jopedro4          #+#    #+#             */
+/*   Updated: 2025/04/23 20:12:18 by jopedro4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <stdio.h>
 #include "libft.h"
 
-int	ft_isalpha(int c)
+t_list	*ft_lstnew(void *content)
 {
-	if (c >= 'a' && c <= 'z')
-		return (1);
-	if (c >= 'A' && c <= 'Z')
-		return (1);
-	return (0);
+	t_list	*new;
+
+	new = malloc(sizeof(t_list));
+	if (!new)
+		return (NULL);
+	new->content = content;
+	new->next = NULL;
+	return (new);
 }
-
-/*int	main(void)
-{
-	int	i;
-
-	i = 'a';
-	printf("%i", ft_isalpha(i));
-	i = '6';
-	printf("%i", ft_isalpha(i));
-}*/

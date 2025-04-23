@@ -6,7 +6,7 @@
 /*   By: jopedro4 <jopedro4@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 16:56:00 by jopedro4          #+#    #+#             */
-/*   Updated: 2025/04/18 00:41:29 by jopedro4         ###   ########.fr       */
+/*   Updated: 2025/04/20 19:10:08 by jopedro4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ char	**ft_split(char const *s, char c)
 
 /*int	main(void)
 {
-	char	s[] = "    one   two  three  four  ";
+	char	s[] = "     one   two   three   four ";
 	char	c = ' ';
 	char	**d;
 	size_t	i;

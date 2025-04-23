@@ -1,38 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jopedro4 <jopedro4@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/10 18:43:19 by jopedro4          #+#    #+#             */
-/*   Updated: 2025/04/23 19:06:40 by jopedro4         ###   ########.fr       */
+/*   Created: 2025/04/20 00:04:58 by jopedro4          #+#    #+#             */
+/*   Updated: 2025/04/20 17:34:46 by jopedro4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#define MAX_BUFFER 100
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+void	ft_putnbr_fd(int n, int fd)
 {
-	if ((!dest && !src))
+	if (n == -2147483648)
 	{
-		return (dest);
+		write(fd, "-2147483648", 11);
+		return ;
 	}
-	if (dest > src)
+	if (n < 0)
 	{
-		while (n--)
-			((unsigned char *)dest)[n] = ((unsigned char *)src)[n];
-		return (dest);
+		write(fd, "-", 1);
+		n *= -1;
 	}
-	ft_memcpy(dest, src, n);
-	return (dest);
+	if (n > 9)
+	{
+		ft_putnbr_fd(n / 10, fd);
+		n %= 10;
+	}
+	n += '0';
+	write(fd, &n, 1);
 }
-
-/*int	main(void)
-{
-	char	string1[MAX_BUFFER] = "lorem ipsum dolor sit amet";
-
-	ft_memmove(string1 +1, "consectetuer", 5);
-	printf("%s", string1);
-}*/

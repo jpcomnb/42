@@ -1,40 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jopedro4 <jopedro4@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/10 22:40:21 by jopedro4          #+#    #+#             */
-/*   Updated: 2025/04/23 19:11:58 by jopedro4         ###   ########.fr       */
+/*   Created: 2025/04/19 21:50:03 by jopedro4          #+#    #+#             */
+/*   Updated: 2025/04/20 00:01:56 by jopedro4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+void	ft_putendl_fd(char *s, int fd)
 {
-	size_t		i;
+	int	i;
 
 	i = 0;
-	if (size <= 0 || !dst || !src)
-		return (ft_strlen((const char *)src));
-	while (i < size - 1 && src[i] != '\0')
+	while (s[i])
 	{
-		dst[i] = src[i];
+		write(fd, &s[i], 1);
 		i++;
 	}
-	dst[i] = '\0';
-	return (ft_strlen((const char *)src));
+	write (fd, "\n", 1);
 }
-
-/*int	main(void)
-{
-	char	dst[] = "cd brain/aneurism ";
-	const char	*src = "yolo";
-	size_t	i;
-
-	i = ft_strlcpy(dst, src, 2);
-	printf("dst: %s\nreturn: %zu\n", dst, i);
-	return (0);
-}*/

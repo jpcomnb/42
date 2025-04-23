@@ -6,7 +6,7 @@
 #    By: jopedro4 <jopedro4@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/09 23:27:35 by jopedro4          #+#    #+#              #
-#    Updated: 2025/04/18 18:20:04 by jopedro4         ###   ########.fr        #
+#    Updated: 2025/04/23 20:44:24 by jopedro4         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,11 +15,54 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
 #included files
-SRCS = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c ft_strlen.c ft_memset.c ft_bzero.c ft_memcpy.c ft_memmove.c ft_strlcpy.c ft_toupper.c ft_tolower.c ft_strchr.c ft_strrchr.c \
-ft_strncmp.c ft_memchr.c ft_memcmp.c ft_strnstr.c ft_atoi.c ft_strlcat.c ft_calloc.c ft_strdup.c ft_substr.c ft_strjoin.c ft_strtrim.c ft_split.c ft_itoa.c
+SRCS = ft_isalpha.c 
+SRCS += ft_isdigit.c 
+SRCS += ft_isalnum.c 
+SRCS += ft_strlen.c 
+SRCS += ft_memset.c 
+SRCS += ft_bzero.c 
+SRCS += ft_memcpy.c 
+SRCS += ft_memmove.c 
+SRCS += ft_strlcpy.c
+SRCS += ft_toupper.c 
+SRCS += ft_tolower.c 
+SRCS += ft_strchr.c 
+SRCS += ft_strrchr.c
+SRCS += ft_strncmp.c 
+SRCS += ft_memchr.c
+SRCS += ft_memcmp.c
+SRCS += ft_strnstr.c
+SRCS += ft_atoi.c
+SRCS += ft_strlcat.c
+SRCS += ft_calloc.c
+SRCS += ft_strdup.c
+SRCS += ft_substr.c
+SRCS += ft_strjoin.c
+SRCS += ft_strtrim.c
+SRCS += ft_split.c
+SRCS += ft_itoa.c
+SRCS += ft_strmapi.c
+SRCS += ft_striteri.c
+SRCS += ft_putchar_fd.c
+SRCS += ft_putstr_fd.c
+SRCS += ft_putendl_fd.c
+SRCS += ft_putnbr_fd.c
+SRCS += ft_isascii.c
+SRCS += ft_isprint.c
+#bonus files
+BONUS = ft_lstnew.c
+BONUS += ft_lstadd_front.c
+BONUS += ft_lstsize.c 
+BONUS += ft_lstlast.c
+BONUS += ft_lstadd_back.c
+BONUS += ft_lstdelone.c
+BONUS += ft_lstclear.c
+BONUS += ft_lstiter.c
+BONUS += ft_lstmap.c
 
 #Object files, .c files changed to .o
 OBJS = $(SRCS:.c=.o)
+BONUS_OBJS = $(BONUS:.c=.o)
 
 #Library name
 NAME = libft.a
@@ -27,17 +70,40 @@ NAME = libft.a
 all: $(NAME)
 
 $(NAME): $(OBJS)
+		$(CC) $(CFLAGS) -c $(SRCS)
 		ar -rcs $@ $^
 
-%.o: %.c libft.h
-		$(CC) $(CFLAGS) -c $< -o $@
 
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
+bonus: $(NAME)
+		$(CC) $(CFLAGS) -c $(BONUS)
+		ar -rcs $(NAME) $(BONUS_OBJS) $(OBJS)
+		touch .bonus
 clean:
 	rm -rf $(OBJS)
-
+	rm -rf $(BONUS_OBJS)
+	rm -rf .bonus
 fclean: clean
 	rm -rf $(NAME)
 	
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re bonus
+
+#bonus: $(NAME) $(BONUS_OBJS)
+# @if [ ! -f $(NAME) ] || [ $(BONUS_OBJS) -nt $(NAME) ]; then \
+# ar -rcs $(NAME) $(BONUS_OBJS);\
+# else \
+#		echo "Bonus library is up to date.";\
+#	fi\
+#OBJS = ft_isalpha.o ft_isdigit.o ft_isalnum.o ft_strlen.o ft_memset.o ft_bzero.o ft_memcpy.o ft_memmove.o ft_strlcpy.o ft_toupper.o ft_tolower.o ft_strchr.o ft_strrchr.o \
+ft_strncmp.o ft_memchr.o ft_memcmp.o ft_strnstr.o ft_atoi.o ft_strlcat.o ft_calloc.o ft_strdup.o ft_substr.o ft_strjoin.o ft_strtrim.o ft_split.o ft_itoa.o ft_strmapi.o ft_striteri.o ft_putchar_fd.o \
+ft_putstr_fd.o ft_putendl_fd.o ft_putnbr_fd.o ft_isascii.o ft_isprint.o
+
+#BONUS_OBJS = ft_lstnew.o ft_lstadd_front.o ft_lstsize.o ft_lstlast.o ft_lstadd_back.o ft_lstdelone.o ft_lstclear.o ft_lstiter.o ft_lstmap.o
+#$(OBJS): $(SRCS) libft.h
+#		$(CC) $(CFLAGS) -c $< -o $@
+#$(BONUS_OBJS): $(BONUS)
+#	

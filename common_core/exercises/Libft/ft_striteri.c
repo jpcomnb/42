@@ -1,33 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jopedro4 <jopedro4@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: jopedro4 <jopedro4@student.42porto.co      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/07 18:12:20 by jopedro4          #+#    #+#             */
-/*   Updated: 2025/04/21 21:49:13 by jopedro4         ###   ########.fr       */
+/*   Created: 2025/04/19 18:46:37 by jopedro4          #+#    #+#             */
+/*   Updated: 2025/04/19 19:15:59 by jopedro4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <stdio.h>
 #include "libft.h"
 
-int	ft_isalpha(int c)
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	if (c >= 'a' && c <= 'z')
-		return (1);
-	if (c >= 'A' && c <= 'Z')
-		return (1);
-	return (0);
+	unsigned int	i;
+
+	i = 0;
+	while (s[i])
+	{
+		f(i, &s[i]);
+		i++;
+	}
 }
 
 /*int	main(void)
 {
-	int	i;
-
-	i = 'a';
-	printf("%i", ft_isalpha(i));
-	i = '6';
-	printf("%i", ft_isalpha(i));
+	
 }*/
