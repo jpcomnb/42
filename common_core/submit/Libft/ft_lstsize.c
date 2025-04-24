@@ -1,42 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jopedro4 <jopedro4@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/15 21:56:56 by jopedro4          #+#    #+#             */
-/*   Updated: 2025/04/16 13:19:47 by jopedro4         ###   ########.fr       */
+/*   Created: 2025/04/23 21:30:00 by jopedro4          #+#    #+#             */
+/*   Updated: 2025/04/23 21:57:07 by jopedro4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t nmemb, size_t size)
+int	ft_lstsize(t_list *lst)
 {
-	void	*ptr;
+	int		i;
+	t_list	*current;
 
-	if (nmemb > PTRDIFF_MAX / size)
-		return (NULL);
-	ptr = malloc(nmemb * size);
-	if (ptr == NULL)
-		return (NULL);
-	ft_bzero(ptr, nmemb * size);
-	return (ptr);
+	i = 0;
+	current = lst;
+	if (current)
+	{
+		while (current)
+		{
+			current = current->next;
+			i++;
+		}
+	}
+	return (i);
 }
-
-/*int	main(void)
-{
-	size_t	nmemb;
-	size_t	size;
-	char	*ptr;
-
-	nmemb = 12;
-	size = 8;
-	ptr = (char *)ft_calloc(nmemb, size);
-	while (size > 0)
-		ptr[--size] = 'd';
-	printf("%s", ptr);
-	free(ptr);
-	return (0);
-}*/

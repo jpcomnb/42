@@ -1,42 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jopedro4 <jopedro4@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/15 21:56:56 by jopedro4          #+#    #+#             */
-/*   Updated: 2025/04/16 13:19:47 by jopedro4         ###   ########.fr       */
+/*   Created: 2025/04/20 00:04:58 by jopedro4          #+#    #+#             */
+/*   Updated: 2025/04/20 17:34:46 by jopedro4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t nmemb, size_t size)
+void	ft_putnbr_fd(int n, int fd)
 {
-	void	*ptr;
-
-	if (nmemb > PTRDIFF_MAX / size)
-		return (NULL);
-	ptr = malloc(nmemb * size);
-	if (ptr == NULL)
-		return (NULL);
-	ft_bzero(ptr, nmemb * size);
-	return (ptr);
+	if (n == -2147483648)
+	{
+		write(fd, "-2147483648", 11);
+		return ;
+	}
+	if (n < 0)
+	{
+		write(fd, "-", 1);
+		n *= -1;
+	}
+	if (n > 9)
+	{
+		ft_putnbr_fd(n / 10, fd);
+		n %= 10;
+	}
+	n += '0';
+	write(fd, &n, 1);
 }
-
-/*int	main(void)
-{
-	size_t	nmemb;
-	size_t	size;
-	char	*ptr;
-
-	nmemb = 12;
-	size = 8;
-	ptr = (char *)ft_calloc(nmemb, size);
-	while (size > 0)
-		ptr[--size] = 'd';
-	printf("%s", ptr);
-	free(ptr);
-	return (0);
-}*/

@@ -1,42 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jopedro4 <jopedro4@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/15 21:56:56 by jopedro4          #+#    #+#             */
-/*   Updated: 2025/04/16 13:19:47 by jopedro4         ###   ########.fr       */
+/*   Created: 2025/04/12 18:57:58 by jopedro4          #+#    #+#             */
+/*   Updated: 2025/04/14 19:19:41 by jopedro4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t nmemb, size_t size)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	void	*ptr;
+	size_t	i;
 
-	if (nmemb > PTRDIFF_MAX / size)
-		return (NULL);
-	ptr = malloc(nmemb * size);
-	if (ptr == NULL)
-		return (NULL);
-	ft_bzero(ptr, nmemb * size);
-	return (ptr);
+	i = 0;
+	while (i < n)
+	{
+		if (((unsigned char *)s)[i] == (unsigned char)c)
+		{
+			return (&((unsigned char *)s)[i]);
+		}
+		i++;
+	}
+	return (NULL);
 }
 
 /*int	main(void)
 {
-	size_t	nmemb;
-	size_t	size;
-	char	*ptr;
+	unsigned char	s[] = "hello muchacho";
+	int	c;
+	size_t n;
 
-	nmemb = 12;
-	size = 8;
-	ptr = (char *)ft_calloc(nmemb, size);
-	while (size > 0)
-		ptr[--size] = 'd';
-	printf("%s", ptr);
-	free(ptr);
-	return (0);
+	c = ' ';
+	n = '7';
+	printf("found %s in string %s", (char *)ft_memchr(s, c, n), s);
 }*/

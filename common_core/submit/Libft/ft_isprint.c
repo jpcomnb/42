@@ -1,42 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jopedro4 <jopedro4@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/15 21:56:56 by jopedro4          #+#    #+#             */
-/*   Updated: 2025/04/16 13:19:47 by jopedro4         ###   ########.fr       */
+/*   Created: 2025/04/08 20:09:21 by jopedro4          #+#    #+#             */
+/*   Updated: 2025/04/08 20:36:37 by jopedro4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+//#include <stdio.h>
 
-void	*ft_calloc(size_t nmemb, size_t size)
+int	ft_isprint(int c)
 {
-	void	*ptr;
-
-	if (nmemb > PTRDIFF_MAX / size)
-		return (NULL);
-	ptr = malloc(nmemb * size);
-	if (ptr == NULL)
-		return (NULL);
-	ft_bzero(ptr, nmemb * size);
-	return (ptr);
+	if (c >= 32 && c <= 126)
+	{
+		return (1);
+	}
+	return (0);
 }
 
 /*int	main(void)
 {
-	size_t	nmemb;
-	size_t	size;
-	char	*ptr;
+	int	i;
 
-	nmemb = 12;
-	size = 8;
-	ptr = (char *)ft_calloc(nmemb, size);
-	while (size > 0)
-		ptr[--size] = 'd';
-	printf("%s", ptr);
-	free(ptr);
-	return (0);
+	i = '0';
+	printf("%d",ft_isprint(i));
+	i = '\n';
+	printf("%d",ft_isprint(i));
 }*/

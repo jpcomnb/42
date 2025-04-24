@@ -1,42 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jopedro4 <jopedro4@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/15 21:56:56 by jopedro4          #+#    #+#             */
-/*   Updated: 2025/04/16 13:19:47 by jopedro4         ###   ########.fr       */
+/*   Created: 2025/04/19 19:57:24 by jopedro4          #+#    #+#             */
+/*   Updated: 2025/04/19 21:44:49 by jopedro4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t nmemb, size_t size)
+void	ft_putstr_fd(char *s, int fd)
 {
-	void	*ptr;
+	int	i;
 
-	if (nmemb > PTRDIFF_MAX / size)
-		return (NULL);
-	ptr = malloc(nmemb * size);
-	if (ptr == NULL)
-		return (NULL);
-	ft_bzero(ptr, nmemb * size);
-	return (ptr);
+	i = 0;
+	while (s[i])
+	{
+		write(fd, &s[i], 1);
+		i++;
+	}
 }
-
-/*int	main(void)
-{
-	size_t	nmemb;
-	size_t	size;
-	char	*ptr;
-
-	nmemb = 12;
-	size = 8;
-	ptr = (char *)ft_calloc(nmemb, size);
-	while (size > 0)
-		ptr[--size] = 'd';
-	printf("%s", ptr);
-	free(ptr);
-	return (0);
-}*/

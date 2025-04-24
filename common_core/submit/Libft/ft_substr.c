@@ -1,41 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jopedro4 <jopedro4@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/12 16:42:09 by jopedro4          #+#    #+#             */
-/*   Updated: 2025/04/24 19:02:00 by jopedro4         ###   ########.fr       */
+/*   Created: 2025/04/16 14:43:03 by jopedro4          #+#    #+#             */
+/*   Updated: 2025/04/16 16:39:13 by jopedro4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
+	char	*c;
 	size_t	i;
-	size_t	t;	
 
 	i = 0;
-	t = ft_strlen(s);
-	while (i <= ft_strlen(s))
+	if (start >= (unsigned int)ft_strlen(s))
+		return (ft_strdup(""));
+	if (ft_strlen(s) - start < len)
+		len = ft_strlen(s) - start;
+	c = (char *)ft_calloc(len + 1, sizeof(char));
+	if (c == NULL)
+		return (NULL);
+	while (len-- > 0)
 	{
-		if (s[t] == (char)c)
-			return ((char *)&s[t]);
+		c[i] = s[start + i];
 		i++;
-		t--;
 	}
-	return (NULL);
+	c[i] = '\0';
+	return (c);
 }
 
 /*int	main(void)
 {
-	const char s[] = "qweqrt";
-	int	c;
-	char *a;
+	char s[] = "asdqwe";
+	unsigned int	start;
+	size_t	len;
 
-	c = 'q';
-	a = ft_strrchr(s, c);
-	printf("the string is: %s\nthe strrchr string is: %s", s, a);
+	start = 8;
+	len = 1;
+	printf("%s", ft_substr(s, start, len))
 }*/

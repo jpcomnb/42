@@ -1,41 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jopedro4 <jopedro4@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/12 16:42:09 by jopedro4          #+#    #+#             */
-/*   Updated: 2025/04/24 19:02:00 by jopedro4         ###   ########.fr       */
+/*   Created: 2025/04/15 18:18:25 by jopedro4          #+#    #+#             */
+/*   Updated: 2025/04/16 12:57:40 by jopedro4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+int	ft_atoi(const char *nptr)
 {
-	size_t	i;
-	size_t	t;	
+	int	i;
+	int	negative;
+	int	result;
 
 	i = 0;
-	t = ft_strlen(s);
-	while (i <= ft_strlen(s))
-	{
-		if (s[t] == (char)c)
-			return ((char *)&s[t]);
+	negative = 1;
+	result = 0;
+	while (nptr[i] == ' ' || (nptr[i] >= 9 && nptr[i] <= 13))
 		i++;
-		t--;
+	if (nptr[i] == '-' || nptr[i] == '+')
+	{
+		if (nptr[i] == '-')
+			negative *= -1;
+		i++;
 	}
-	return (NULL);
+	while (nptr[i] >= '0' && nptr[i] <= '9')
+	{
+		result = (result * 10) + (nptr[i] - '0');
+		i++;
+	}
+	return (result * negative);
 }
 
-/*int	main(void)
+/*int main(void)
 {
-	const char s[] = "qweqrt";
-	int	c;
-	char *a;
+	const char nptr[] = "--213";
 
-	c = 'q';
-	a = ft_strrchr(s, c);
-	printf("the string is: %s\nthe strrchr string is: %s", s, a);
+	printf("%i,%i", ft_atoi(nptr), atoi(nptr));
 }*/

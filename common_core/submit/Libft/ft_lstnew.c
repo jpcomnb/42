@@ -1,34 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jopedro4 <jopedro4@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: jopedro4 <jopedro4@student.42porto.co      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/08 20:37:36 by jopedro4          #+#    #+#             */
-/*   Updated: 2025/04/12 16:02:03 by jopedro4         ###   ########.fr       */
+/*   Created: 2025/04/20 18:36:09 by jopedro4          #+#    #+#             */
+/*   Updated: 2025/04/23 20:12:18 by jopedro4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *c)
+t_list	*ft_lstnew(void *content)
 {
-	size_t	i;
+	t_list	*new;
 
-	i = 0;
-	while (c[i] != '\0')
-	{
-		i++;
-	}
-	return (i);
+	new = malloc(sizeof(t_list));
+	if (!new)
+		return (NULL);
+	new->content = content;
+	new->next = NULL;
+	return (new);
 }
-
-/*int	main(void)
-{
-	const char *c;
-
-	c = "hello";
-	printf("%d", ft_strlen(c));
-	
-}*/

@@ -1,42 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jopedro4 <jopedro4@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/15 21:56:56 by jopedro4          #+#    #+#             */
-/*   Updated: 2025/04/16 13:19:47 by jopedro4         ###   ########.fr       */
+/*   Created: 2025/04/09 18:00:07 by jopedro4          #+#    #+#             */
+/*   Updated: 2025/04/11 19:05:56 by jopedro4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t nmemb, size_t size)
+void	ft_bzero(void *s, size_t n)
 {
-	void	*ptr;
+	size_t			i;
+	unsigned char	*temp;
 
-	if (nmemb > PTRDIFF_MAX / size)
-		return (NULL);
-	ptr = malloc(nmemb * size);
-	if (ptr == NULL)
-		return (NULL);
-	ft_bzero(ptr, nmemb * size);
-	return (ptr);
+	i = 0;
+	temp = s;
+	while (i < n)
+	{
+		temp[i] = '\0';
+		i++;
+	}
 }
 
 /*int	main(void)
 {
-	size_t	nmemb;
-	size_t	size;
-	char	*ptr;
-
-	nmemb = 12;
-	size = 8;
-	ptr = (char *)ft_calloc(nmemb, size);
-	while (size > 0)
-		ptr[--size] = 'd';
-	printf("%s", ptr);
-	free(ptr);
-	return (0);
+	unsigned char string[50] = "Hello, world!";
+	size_t n;
+	
+	n = 4;
+	ft_bzero(string, n);
+	printf("este string ja era:%s\n", string);
+	printf("este char ja e: %c", string[7]);
 }*/

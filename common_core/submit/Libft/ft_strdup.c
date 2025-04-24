@@ -1,42 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jopedro4 <jopedro4@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/15 21:56:56 by jopedro4          #+#    #+#             */
-/*   Updated: 2025/04/16 13:19:47 by jopedro4         ###   ########.fr       */
+/*   Created: 2025/04/16 13:22:06 by jopedro4          #+#    #+#             */
+/*   Updated: 2025/04/16 14:37:59 by jopedro4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t nmemb, size_t size)
+char	*ft_strdup(const char *s)
 {
-	void	*ptr;
+	size_t	i;
+	char	*ptr;
+	size_t	n;
 
-	if (nmemb > PTRDIFF_MAX / size)
-		return (NULL);
-	ptr = malloc(nmemb * size);
+	n = ft_strlen(s);
+	i = 0;
+	ptr = (char *)malloc((sizeof(char) * n) + 1);
 	if (ptr == NULL)
 		return (NULL);
-	ft_bzero(ptr, nmemb * size);
+	while (n-- > 0)
+	{
+		ptr[i] = s[i];
+		i++;
+	}
+	ptr[i] = '\0';
 	return (ptr);
 }
 
 /*int	main(void)
 {
-	size_t	nmemb;
-	size_t	size;
-	char	*ptr;
+	char s[]= "qwerty";
+	char *d;
 
-	nmemb = 12;
-	size = 8;
-	ptr = (char *)ft_calloc(nmemb, size);
-	while (size > 0)
-		ptr[--size] = 'd';
-	printf("%s", ptr);
-	free(ptr);
-	return (0);
+	d = ft_strdup(s);
+	printf("%s", d);
 }*/
