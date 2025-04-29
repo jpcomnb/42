@@ -6,7 +6,7 @@
 /*   By: jopedro4 <jopedro4@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 21:56:56 by jopedro4          #+#    #+#             */
-/*   Updated: 2025/04/16 13:19:47 by jopedro4         ###   ########.fr       */
+/*   Updated: 2025/04/27 17:54:16 by jopedro4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	*ft_calloc(size_t nmemb, size_t size)
 {
 	void	*ptr;
 
-	if (nmemb > PTRDIFF_MAX / size)
+	if (size != 0 && nmemb > (SIZE_MAX / size))
 		return (NULL);
 	ptr = malloc(nmemb * size);
 	if (ptr == NULL)

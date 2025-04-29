@@ -6,16 +6,16 @@
 /*   By: jopedro4 <jopedro4@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 16:08:07 by jopedro4          #+#    #+#             */
-/*   Updated: 2025/04/21 22:31:54 by jopedro4         ###   ########.fr       */
+/*   Updated: 2025/04/25 17:57:16 by jopedro4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-#include <stdint.h>
+# include <stdint.h>
 //# include <stdio.h>
-//# include <stddef.h>
+# include <stddef.h>
 # include <unistd.h>
 //# include <string.h>
 # include <stdlib.h>

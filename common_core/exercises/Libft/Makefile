@@ -6,7 +6,7 @@
 #    By: jopedro4 <jopedro4@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/09 23:27:35 by jopedro4          #+#    #+#              #
-#    Updated: 2025/04/23 20:44:24 by jopedro4         ###   ########.fr        #
+#    Updated: 2025/04/29 20:47:24 by jopedro4         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -66,7 +66,7 @@ BONUS_OBJS = $(BONUS:.c=.o)
 
 #Library name
 NAME = libft.a
-
+.BONUS = .bonus
 all: $(NAME)
 
 $(NAME): $(OBJS)
@@ -77,7 +77,9 @@ $(NAME): $(OBJS)
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
-bonus: $(NAME)
+bonus: $(NAME) $(.BONUS)
+
+$(.BONUS): $(BONUS)
 		$(CC) $(CFLAGS) -c $(BONUS)
 		ar -rcs $(NAME) $(BONUS_OBJS) $(OBJS)
 		touch .bonus
