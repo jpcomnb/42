@@ -6,7 +6,7 @@
 /*   By: jopedro4 <jopedro4@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/08 21:41:27 by jopedro4          #+#    #+#             */
-/*   Updated: 2025/05/18 21:33:00 by jopedro4         ###   ########.fr       */
+/*   Updated: 2025/05/19 00:27:43 by jopedro4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static char	*ft_next_buffer(char *buffer)
 	}
 	next_line = ft_calloc((ft_strlen(buffer) - i + 1), sizeof(char));
 	if (!next_line)
-		return (NULL);
+		return (free(buffer), NULL);
 	i++;
 	while (buffer[i])
 		next_line[i2++] = buffer[i++];
@@ -76,11 +76,8 @@ static char	*ft_doline(char	*buffer)
 	return (line);
 }
 
-static char	*ft_read_line(int fd, char *buffer)
+static char	*ft_read_line(int fd, char *buffer, char *temp, int byte_read)
 {
-	char	*temp;
-	int		byte_read;
-
 	if (!buffer)
 		buffer = ft_calloc(1, 1);
 	if (!buffer)
@@ -98,6 +95,8 @@ static char	*ft_read_line(int fd, char *buffer)
 		{
 			temp[byte_read] = 0;
 			buffer = ft_free(buffer, temp);
+			if (!buffer)
+				return (free(temp), NULL);
 			if (ft_strchr(temp, '\n'))
 				break ;
 		}
@@ -119,7 +118,7 @@ char	*get_next_line(int fd)
 		}
 		return (NULL);
 	}
-	buffer = ft_read_line(fd, buffer);
+	buffer = ft_read_line(fd, buffer, NULL, 1);
 	if (!buffer)
 		return (NULL);
 	string = ft_doline(buffer);

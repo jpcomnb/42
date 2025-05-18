@@ -6,7 +6,7 @@
 /*   By: jopedro4 <jopedro4@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/17 21:53:33 by jopedro4          #+#    #+#             */
-/*   Updated: 2025/05/18 17:42:46 by jopedro4         ###   ########.fr       */
+/*   Updated: 2025/05/19 00:16:01 by jopedro4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		return (NULL);
 	ft_strlcat(ptr, s1, s1_l + 1);
 	ft_strlcat(ptr, s2, ft_strlen(ptr) + s2_l + 1);
+	if (ptr == NULL)
+		return (NULL);
 	return (ptr);
 }
 
