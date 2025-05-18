@@ -6,65 +6,136 @@
 /*   By: jopedro4 <jopedro4@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/08 21:41:27 by jopedro4          #+#    #+#             */
-/*   Updated: 2025/05/16 21:40:29 by jopedro4         ###   ########.fr       */
+/*   Updated: 2025/05/18 21:33:00 by jopedro4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
 char	*get_next_line(int fd);
-static int	ft_string(char *string);
-static void	*ft_memmove(void *dest, const void *src, size_t n);
 
-static int	ft_string(char *string)
+static char	*ft_free(char *buffer, char *buffer2)
 {
-	int	i;
-	int	size;
-	char	*buf;
+	char	*string;
 
-	size = 1;
+	string = ft_strjoin(buffer, buffer2);
+	free(buffer);
+	if (!string)
+		return (free(string), NULL);
+	return (string);
+}
+
+static char	*ft_next_buffer(char *buffer)
+{
+	int		i;
+	int		i2;
+	char	*next_line;
+
 	i = 0;
-	buf = NULL;
-	if (!buf)
-		return (NULL);
-	while (string[i] && string[i] != '\n' && i < BUFFER_SIZE)
+	i2 = 0;
+	while (buffer[i] != '\n' && buffer[i])
 		i++;
-	while (size)
+	if (!buffer[i])
 	{
-		size = read(fd, string, i);
-		ft_memmove(buf, string, i);
+		free(buffer);
+		return (NULL);
 	}
-	return (buf);
+	next_line = ft_calloc((ft_strlen(buffer) - i + 1), sizeof(char));
+	if (!next_line)
+		return (NULL);
+	i++;
+	while (buffer[i])
+		next_line[i2++] = buffer[i++];
+	free(buffer);
+	return (next_line);
+}
+
+static char	*ft_doline(char	*buffer)
+{
+	char	*line;
+	int		i;
+
+	i = 0;
+	if (!buffer[i])
+		return (NULL);
+	while (buffer[i] && buffer[i] != '\n')
+		i++;
+	if (ft_strchr(buffer, '\n'))
+		i++;
+	line = ft_calloc(i + 1, sizeof(char));
+	if (!line)
+		return (NULL);
+	i = 0;
+	while (buffer[i] && buffer[i] != '\n')
+	{
+		line[i] = buffer [i];
+		i++;
+	}
+	if (buffer[i] && buffer [i] == '\n')
+		line [i++] = '\n';
+	return (line);
+}
+
+static char	*ft_read_line(int fd, char *buffer)
+{
+	char	*temp;
+	int		byte_read;
+
+	if (!buffer)
+		buffer = ft_calloc(1, 1);
+	if (!buffer)
+		return (NULL);
+	temp = ft_calloc(BUFFER_SIZE + 1, sizeof(char));
+	if (!temp)
+		return (free(buffer), NULL);
+	byte_read = 1;
+	while (byte_read > 0)
+	{
+		byte_read = read(fd, temp, BUFFER_SIZE);
+		if (byte_read == -1)
+			return (free(temp), free(buffer), NULL);
+		if (byte_read > 0)
+		{
+			temp[byte_read] = 0;
+			buffer = ft_free(buffer, temp);
+			if (ft_strchr(temp, '\n'))
+				break ;
+		}
+	}
+	return (free(temp), buffer);
 }
 
 char	*get_next_line(int fd)
 {
-	static char buf[BUFFER_SIZE + 1];
-	int	buffer;
+	static char	*buffer;
+	char		*string;
 
-	if (fd <= -1 || BUFFER_SIZE <= 0 || read(fd, buf, 0) < 0)
+	if (fd <= -1 || BUFFER_SIZE <= 0)
+	{
+		if (buffer)
+		{
+			free(buffer);
+			buffer = NULL;
+		}
 		return (NULL);
-	ft_string(&buf);
-	return(buf);
+	}
+	buffer = ft_read_line(fd, buffer);
+	if (!buffer)
+		return (NULL);
+	string = ft_doline(buffer);
+	buffer = ft_next_buffer(buffer);
+	return (string);
 }
 
-static void	*ft_memmove(void *dest, const void *src, size_t n)
-{
-	if (dest)
-	{
-		
-	}
-	if (dest >src)
-	{
-		
-	}
-}
-
-int	main(int argc, char *argv[])
+/*int	main(void)
 {
 	char	*lines;
 
-	int fd = open(argv[1], O_RDONLY);
-	lines = get_next_line(fd);
-	printf("%s\n", lines);
-}
+	int fd = open("only_nl.txt", O_RDONLY);
+	while ((lines = get_next_line(fd)))
+	{
+		printf("%s", lines);
+		free(lines);
+	}
+	close (fd);
+}*/
