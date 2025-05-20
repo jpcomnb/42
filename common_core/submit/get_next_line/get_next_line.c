@@ -6,7 +6,7 @@
 /*   By: jopedro4 <jopedro4@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/08 21:41:27 by jopedro4          #+#    #+#             */
-/*   Updated: 2025/05/20 20:26:00 by jopedro4         ###   ########.fr       */
+/*   Updated: 2025/05/20 20:31:04 by jopedro4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,23 +131,7 @@ char	*get_next_line(int fd)
 	buffer = ft_next_buffer(buffer);
 	return (string);
 }
-/*int	main(int argc, char **argv)
-{
-	if (argc == 3)
-	{
-		char	*lines;
-		int		n = atoi(argv[2]);
-		int fd = open(argv[1], O_RDONLY);
 
-		while (n--)
-		{
-			lines = get_next_line(fd);
-			printf("%s", lines);
-			free(lines);
-		}
-		close (fd);
-	}
-}*/
 /*int	main(void)
 {
 	char	*lines;
