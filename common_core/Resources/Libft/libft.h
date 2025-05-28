@@ -6,7 +6,7 @@
 /*   By: jopedro4 <jopedro4@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 16:08:07 by jopedro4          #+#    #+#             */
-/*   Updated: 2025/04/25 17:57:16 by jopedro4         ###   ########.fr       */
+/*   Updated: 2025/05/28 19:07:47 by jopedro4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,4 +71,6 @@ void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 void	ft_putchar(int c);
+void	ft_putstr(char *s);
+void	ft_putnbr_base(unsigned int nbr, char *base);
 #endif

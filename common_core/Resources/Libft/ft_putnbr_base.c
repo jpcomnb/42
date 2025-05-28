@@ -1,27 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jopedro4 <jopedro4@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/20 20:43:54 by jopedro4          #+#    #+#             */
-/*   Updated: 2025/05/28 19:10:31 by jopedro4         ###   ########.fr       */
+/*   Created: 2025/05/26 18:41:21 by jopedro4          #+#    #+#             */
+/*   Updated: 2025/05/28 19:47:08 by jopedro4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-/*void só recebe valores não devolve*/
-/*ft_putchar(char c ) define a variavel c para ser usada no write*/
-/*char defines what type of interger it is, 
-char is does not work with numbers*/
-/*ft_putchar('c') defines ft_putchar as the letter c*/
+
 #include "libft.h"
 
-void	ft_putchar(int c)
+void	ft_putnbr_base(unsigned int nbr, char *(base))
 {
-	write(1, &c, 1);
+	unsigned int	i;
+	unsigned int	b;
+
+	b = ft_strlen(base);
+
+	if (nbr < b)
+	{
+		write(1, &base[nbr], 1);
+		return ;
+	}
+	if (nbr > b)
+	{
+		ft_putnbr_base(nbr / b, base);
+		nbr %= b;
+		write(1, &base[nbr], 1);
+	}
 }
 
 /*int	main(void)
 {
-	ft_putchar('c');
+	printf("%x\n", 999);
+	ft_putnbr_base(999, "0123456789abcdef");
 }*/

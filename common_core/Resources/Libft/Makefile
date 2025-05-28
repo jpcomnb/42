@@ -6,7 +6,7 @@
 #    By: jopedro4 <jopedro4@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/09 23:27:35 by jopedro4          #+#    #+#              #
-#    Updated: 2025/04/29 20:47:24 by jopedro4         ###   ########.fr        #
+#    Updated: 2025/05/26 18:01:57 by jopedro4         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,6 +50,8 @@ SRCS += ft_putnbr_fd.c
 SRCS += ft_isascii.c
 SRCS += ft_isprint.c
 SRCS += ft_putchar.c
+SRCS += ft_putstr.c
+
 #bonus files
 BONUS = ft_lstnew.c
 BONUS += ft_lstadd_front.c
