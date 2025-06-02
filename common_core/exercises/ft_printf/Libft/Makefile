@@ -6,7 +6,7 @@
 #    By: jopedro4 <jopedro4@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/09 23:27:35 by jopedro4          #+#    #+#              #
-#    Updated: 2025/05/30 21:42:03 by jopedro4         ###   ########.fr        #
+#    Updated: 2025/06/02 18:04:39 by jopedro4         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,22 +54,23 @@ SRCS += ft_putstr.c
 SRCS += ft_putstr_count.c
 SRCS += ft_putnbr_unsigned.c
 SRCS += ft_putnbr_unsigned_count.c
-SRCS += ft_putnbr_base.c
-SRCS += ft_putnbr_base_count.c
+SRCS += ft_putnbrb.c
+SRCS += ft_putnbrb_count.c
+SRCS += ft_putnbr_count.c
 SRCS += ft_putaddress.c
 SRCS += ft_putaddress_count.c
-
+SRCS += ft_putnbrlb_count.c
 
 #bonus files
-BONUS = ft_lstnew.c
-BONUS += ft_lstadd_front.c
-BONUS += ft_lstsize.c 
-BONUS += ft_lstlast.c
-BONUS += ft_lstadd_back.c
-BONUS += ft_lstdelone.c
-BONUS += ft_lstclear.c
-BONUS += ft_lstiter.c
-BONUS += ft_lstmap.c
+BONUS = ft_lstnew_bonus.c
+BONUS += ft_lstadd_front_bonus.c
+BONUS += ft_lstsize_bonus.c 
+BONUS += ft_lstlast_bonus.c
+BONUS += ft_lstadd_back_bonus.c
+BONUS += ft_lstdelone_bonus.c
+BONUS += ft_lstclear_bonus.c
+BONUS += ft_lstiter_bonus.c
+BONUS += ft_lstmap_bonus.c
 
 #Object files, .c files changed to .o
 OBJS = $(SRCS:.c=.o)

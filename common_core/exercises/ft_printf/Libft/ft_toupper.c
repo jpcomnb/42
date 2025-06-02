@@ -1,39 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jopedro4 <jopedro4@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/26 18:41:21 by jopedro4          #+#    #+#             */
-/*   Updated: 2025/05/28 19:47:08 by jopedro4         ###   ########.fr       */
+/*   Created: 2025/04/11 23:00:57 by jopedro4          #+#    #+#             */
+/*   Updated: 2025/04/11 23:43:41 by jopedro4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_base(unsigned int nbr, char *(base))
+int	ft_toupper(int c)
 {
-	unsigned int	i;
-	unsigned int	b;
-
-	b = ft_strlen(base);
-
-	if (nbr < b)
-	{
-		write(1, &base[nbr], 1);
-		return ;
-	}
-	if (nbr > b)
-	{
-		ft_putnbr_base(nbr / b, base);
-		nbr %= b;
-		write(1, &base[nbr], 1);
-	}
+	if ((unsigned char)c >= 'a' && (unsigned char)c <= 'z')
+		c -= 32;
+	return (c);
 }
-
-/*int	main(void)
-{
-	printf("%x\n", 999);
-	ft_putnbr_base(999, "0123456789abcdef");
-}*/

@@ -6,7 +6,7 @@
 /*   By: jopedro4 <jopedro4@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 16:08:07 by jopedro4          #+#    #+#             */
-/*   Updated: 2025/05/30 21:40:13 by jopedro4         ###   ########.fr       */
+/*   Updated: 2025/06/02 18:05:22 by jopedro4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,12 +72,13 @@ void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 void	ft_putchar(int c);
 void	ft_putstr(char *s);
-void	ft_putnbr_base(unsigned int nbr, char *base);
-int		ft_putnbr_base_count(unsigned int nbr, char *base);
+void	ft_putnbrb(unsigned int nbr, char *base);
+int		ft_putnbrb_count(unsigned int nbr, char *base);
 void	ft_putnbr_unsigned(unsigned int n);
 int		ft_putnbr_unsigned_count(unsigned int n);
 int		ft_putnbr_count(int nb);
 int		ft_putstr_count(char *string);
 void	ft_putaddress(void *p);
 int		ft_putaddress_count(void *p);
+int		ft_putnbrlb_count(unsigned long nbr, char *base);
 #endif

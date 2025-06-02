@@ -1,22 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_put_adress.c                                    :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jopedro4 <jopedro4@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: jopedro4 <jopedro4@student.42porto.co      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/26 18:37:54 by jopedro4          #+#    #+#             */
-/*   Updated: 2025/05/26 18:41:00 by jopedro4         ###   ########.fr       */
+/*   Created: 2025/04/20 18:36:09 by jopedro4          #+#    #+#             */
+/*   Updated: 2025/04/23 20:12:18 by jopedro4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void ft_put_adress(void *p)
+#include "libft.h"
+
+t_list	*ft_lstnew(void *content)
 {
-	unsigned long	addr;
-	int				i;
+	t_list	*new;
 
-	addr = (unsigned long)p;
-
-	ft_putstr("0x");
-
+	new = malloc(sizeof(t_list));
+	if (!new)
+		return (NULL);
+	new->content = content;
+	new->next = NULL;
+	return (new);
 }
