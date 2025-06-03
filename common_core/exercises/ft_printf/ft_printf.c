@@ -6,7 +6,7 @@
 /*   By: jopedro4 <jopedro4@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 22:02:15 by jopedro4          #+#    #+#             */
-/*   Updated: 2025/06/02 19:36:26 by jopedro4         ###   ########.fr       */
+/*   Updated: 2025/06/02 21:25:05 by jopedro4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,6 @@ int	ft_printf(const char *string, ...)
 
 /*int	main(void)
 {
-//	(void)argc;
-//	(void *)argv;
 	char			c;
 	char 			*s;
 	void			*p;
@@ -88,8 +86,8 @@ int	ft_printf(const char *string, ...)
 	ft_printf("ft_printf c: %c\n", c);
 	printf("printf s: %s\n", s);
 	ft_printf("ft_printf s: %s\n", s);
-	printf("printf p: %p %p\n", LONG_MIN, LONG_MAX);
-	ft_printf("ft_printf p: %p %p\n", LONG_MIN, LONG_MAX);
+	printf("printf p: %p \n", p);
+	ft_printf("ft_printf p: %p\n", p);
 	printf("printf d: %d\n", d);
 	ft_printf("ft_printf d: %d\n", d);
 	printf("printf i: %i\n", i);
