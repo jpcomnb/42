@@ -1,46 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbrb_count.c                                 :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jopedro4 <jopedro4@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/26 18:41:21 by jopedro4          #+#    #+#             */
-/*   Updated: 2025/05/31 22:03:15 by jopedro4         ###   ########.fr       */
+/*   Created: 2025/04/12 16:42:09 by jopedro4          #+#    #+#             */
+/*   Updated: 2025/04/24 19:02:00 by jopedro4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_putnbrb_count(unsigned int nbr, char *(base))
+char	*ft_strrchr(const char *s, int c)
 {
-	unsigned int	b;
-	int				count;
+	size_t	i;
+	size_t	t;	
 
-	count = 0;
-	b = ft_strlen(base);
-	if (nbr < b)
+	i = 0;
+	t = ft_strlen(s);
+	while (i <= ft_strlen(s))
 	{
-		count++;
-		write(1, &base[nbr], 1);
+		if (s[t] == (char)c)
+			return ((char *)&s[t]);
+		i++;
+		t--;
 	}
-	if (nbr >= b)
-	{
-		count++;
-		count += ft_putnbrb_count(nbr / b, base);
-		nbr %= b;
-		write(1, &base[nbr], 1);
-	}
-	return (count);
+	return (NULL);
 }
 
 /*int	main(void)
 {
-	int	i;
+	const char s[] = "qweqrt";
+	int	c;
+	char *a;
 
-	i = 0;
-//	printf(" %x ", 16);
-//	printf("\n");
-	i = ft_putnbrb_count(16, "0123456789abcdef");
-//	printf("\n%i", i);
+	c = 'q';
+	a = ft_strrchr(s, c);
+	printf("the string is: %s\nthe strrchr string is: %s", s, a);
 }*/

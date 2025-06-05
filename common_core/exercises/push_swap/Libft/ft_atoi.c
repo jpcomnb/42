@@ -1,41 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putaddress_count.c                              :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jopedro4 <jopedro4@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/30 20:53:55 by jopedro4          #+#    #+#             */
-/*   Updated: 2025/05/31 22:23:18 by jopedro4         ###   ########.fr       */
+/*   Created: 2025/04/15 18:18:25 by jopedro4          #+#    #+#             */
+/*   Updated: 2025/04/16 12:57:40 by jopedro4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_putaddress_count(void *p)
+int	ft_atoi(const char *nptr)
 {
-	unsigned long	addr;
-	int				count;
+	int	i;
+	int	negative;
+	int	result;
 
-	count = 0;
-	if (!p)
+	i = 0;
+	negative = 1;
+	result = 0;
+	while (nptr[i] == ' ' || (nptr[i] >= 9 && nptr[i] <= 13))
+		i++;
+	if (nptr[i] == '-' || nptr[i] == '+')
 	{
-		count += 5;
-		write(1, "(nil)", 5);
-		return (count);
+		if (nptr[i] == '-')
+			negative *= -1;
+		i++;
 	}
-	addr = (unsigned long)p;
-	write(1, "0x", 2);
-	count += 2;
-	count += ft_putnbrlb_count(addr, "0123456789abcdef");
-	return (count);
+	while (nptr[i] >= '0' && nptr[i] <= '9')
+	{
+		result = (result * 10) + (nptr[i] - '0');
+		i++;
+	}
+	return (result * negative);
 }
 
 /*int main(void)
 {
-	void *p;
+	const char nptr[] = "--213";
 
-	p = (void *)999999;
-	printf(" %p %p ", p);
-	printf(" %p %p ", ft_putaddress_count(p));
+	printf("%i,%i", ft_atoi(nptr), atoi(nptr));
 }*/

@@ -1,44 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_count.c                                  :+:      :+:    :+:   */
+/*   isdigit.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jopedro4 <jopedro4@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/30 19:52:19 by jopedro4          #+#    #+#             */
-/*   Updated: 2025/05/31 21:29:31 by jopedro4         ###   ########.fr       */
+/*   Created: 2025/04/07 18:41:08 by jopedro4          #+#    #+#             */
+/*   Updated: 2025/04/07 22:19:19 by jopedro4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+//#include <stdio.h>
 
-int	ft_putstr_count(char *string)
+int	ft_isdigit(int c)
 {
-	int	count;
-	int	i;
-
-	i = 0;
-	count = 0;
-	if (!string)
-	{
-		write(1, "(null)", 6);
-		return (6);
-	}
-	if (string[i] == '\0')
-		return (0);
-	while (string[i])
-	{
-		count++;
-		write(1, &string[i], 1);
-		i++;
-	}
-	return (count);
+	if (c >= '0' && c <= '9')
+		return (1);
+	return (0);
 }
 
 /*int	main(void)
 {
-	char *string= "wow so cool";
+	int	i;
 
-	printf("%s\n", string);
-	printf("\n%i\n", ft_putstr_count(string));
+	i = 'a'
+	printf("%d", ft_isdigit(i));
+	i = '8'
+	printf("%d", ft_isdigit(i));
 }*/

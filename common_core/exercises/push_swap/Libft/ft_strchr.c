@@ -1,46 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbrb_count.c                                 :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jopedro4 <jopedro4@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/26 18:41:21 by jopedro4          #+#    #+#             */
-/*   Updated: 2025/05/31 22:03:15 by jopedro4         ###   ########.fr       */
+/*   Created: 2025/04/11 23:59:08 by jopedro4          #+#    #+#             */
+/*   Updated: 2025/04/12 16:40:10 by jopedro4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_putnbrb_count(unsigned int nbr, char *(base))
-{
-	unsigned int	b;
-	int				count;
-
-	count = 0;
-	b = ft_strlen(base);
-	if (nbr < b)
-	{
-		count++;
-		write(1, &base[nbr], 1);
-	}
-	if (nbr >= b)
-	{
-		count++;
-		count += ft_putnbrb_count(nbr / b, base);
-		nbr %= b;
-		write(1, &base[nbr], 1);
-	}
-	return (count);
-}
-
-/*int	main(void)
+char	*ft_strchr(const char *s, int c)
 {
 	int	i;
 
 	i = 0;
-//	printf(" %x ", 16);
-//	printf("\n");
-	i = ft_putnbrb_count(16, "0123456789abcdef");
-//	printf("\n%i", i);
+	if (!(char)c)
+		return ((char *)&s[ft_strlen(s)]);
+	while (s[i])
+	{
+		if (s[i] == (char)c)
+			return ((char *)&s[i]);
+		i++;
+	}
+	return (NULL);
+}
+
+/*int	main(void)
+{
+	const char s[] = "the cake is a lie !\0I'm hidden lol\r\n";
+	int	i;
+	char *f;
+	i = ' ';
+	f = ft_strchr(s, i);
+	printf("the %s has %s", s, f);
 }*/

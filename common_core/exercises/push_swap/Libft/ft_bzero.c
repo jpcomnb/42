@@ -1,46 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbrb_count.c                                 :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jopedro4 <jopedro4@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/26 18:41:21 by jopedro4          #+#    #+#             */
-/*   Updated: 2025/05/31 22:03:15 by jopedro4         ###   ########.fr       */
+/*   Created: 2025/04/09 18:00:07 by jopedro4          #+#    #+#             */
+/*   Updated: 2025/04/11 19:05:56 by jopedro4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_putnbrb_count(unsigned int nbr, char *(base))
+void	ft_bzero(void *s, size_t n)
 {
-	unsigned int	b;
-	int				count;
+	size_t			i;
+	unsigned char	*temp;
 
-	count = 0;
-	b = ft_strlen(base);
-	if (nbr < b)
+	i = 0;
+	temp = s;
+	while (i < n)
 	{
-		count++;
-		write(1, &base[nbr], 1);
+		temp[i] = '\0';
+		i++;
 	}
-	if (nbr >= b)
-	{
-		count++;
-		count += ft_putnbrb_count(nbr / b, base);
-		nbr %= b;
-		write(1, &base[nbr], 1);
-	}
-	return (count);
 }
 
 /*int	main(void)
 {
-	int	i;
-
-	i = 0;
-//	printf(" %x ", 16);
-//	printf("\n");
-	i = ft_putnbrb_count(16, "0123456789abcdef");
-//	printf("\n%i", i);
+	unsigned char string[50] = "Hello, world!";
+	size_t n;
+	
+	n = 4;
+	ft_bzero(string, n);
+	printf("este string ja era:%s\n", string);
+	printf("este char ja e: %c", string[7]);
 }*/

@@ -1,44 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_count.c                                  :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jopedro4 <jopedro4@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/30 19:52:19 by jopedro4          #+#    #+#             */
-/*   Updated: 2025/05/31 21:29:31 by jopedro4         ###   ########.fr       */
+/*   Created: 2025/04/14 19:38:39 by jopedro4          #+#    #+#             */
+/*   Updated: 2025/04/14 20:40:07 by jopedro4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_putstr_count(char *string)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	int	count;
-	int	i;
+	size_t			i;
+	unsigned char	*temp1;
+	unsigned char	*temp2;
 
+	temp1 = (unsigned char *)s1;
+	temp2 = (unsigned char *)s2;
 	i = 0;
-	count = 0;
-	if (!string)
-	{
-		write(1, "(null)", 6);
-		return (6);
-	}
-	if (string[i] == '\0')
+	if (n == 0)
 		return (0);
-	while (string[i])
+	while (n > 0)
 	{
-		count++;
-		write(1, &string[i], 1);
+		if (temp1[i] != temp2[i])
+			break ;
+		n--;
+		if (n == 0)
+			break ;
 		i++;
 	}
-	return (count);
+	return (temp1[i] - temp2[i]);
 }
 
 /*int	main(void)
 {
-	char *string= "wow so cool";
+	unsigned char s1[] = "teste";
+	unsigned char s2[] = "test";
 
-	printf("%s\n", string);
-	printf("\n%i\n", ft_putstr_count(string));
+	int	f;
+	size_t n;
+
+	n = 10;
+	f = ft_memcmp(s1, s2, n);
+	printf("%d",f );
 }*/

@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbrb_count.c                                 :+:      :+:    :+:   */
+/*   ft_putnbrbl_count.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jopedro4 <jopedro4@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 18:41:21 by jopedro4          #+#    #+#             */
-/*   Updated: 2025/05/31 22:03:15 by jopedro4         ###   ########.fr       */
+/*   Updated: 2025/06/02 17:49:53 by jopedro4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-int	ft_putnbrb_count(unsigned int nbr, char *(base))
+// putnbr long base count
+int	ft_putnbrlb_count(unsigned long nbr, char *(base))
 {
-	unsigned int	b;
+	unsigned long	b;
 	int				count;
 
 	count = 0;
@@ -27,7 +27,7 @@ int	ft_putnbrb_count(unsigned int nbr, char *(base))
 	if (nbr >= b)
 	{
 		count++;
-		count += ft_putnbrb_count(nbr / b, base);
+		count += ft_putnbrlb_count(nbr / b, base);
 		nbr %= b;
 		write(1, &base[nbr], 1);
 	}
@@ -41,6 +41,6 @@ int	ft_putnbrb_count(unsigned int nbr, char *(base))
 	i = 0;
 //	printf(" %x ", 16);
 //	printf("\n");
-	i = ft_putnbrb_count(16, "0123456789abcdef");
+	i = ft_putnbrbl_count(16, "0123456789abcdef");
 //	printf("\n%i", i);
 }*/

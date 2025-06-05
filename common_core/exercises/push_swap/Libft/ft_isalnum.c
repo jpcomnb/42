@@ -1,41 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putaddress_count.c                              :+:      :+:    :+:   */
+/*   isalnum.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jopedro4 <jopedro4@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/30 20:53:55 by jopedro4          #+#    #+#             */
-/*   Updated: 2025/05/31 22:23:18 by jopedro4         ###   ########.fr       */
+/*   Created: 2025/04/07 18:54:53 by jopedro4          #+#    #+#             */
+/*   Updated: 2025/04/07 21:59:28 by jopedro4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+//#include <stdio.h>
 
-int	ft_putaddress_count(void *p)
+int	ft_isalnum(int c)
 {
-	unsigned long	addr;
-	int				count;
-
-	count = 0;
-	if (!p)
-	{
-		count += 5;
-		write(1, "(nil)", 5);
-		return (count);
-	}
-	addr = (unsigned long)p;
-	write(1, "0x", 2);
-	count += 2;
-	count += ft_putnbrlb_count(addr, "0123456789abcdef");
-	return (count);
+	if (c >= 'a' && c <= 'z')
+		return (1);
+	if (c >= 'A' && c <= 'Z')
+		return (1);
+	if (c >= '0' && c <= '9')
+		return (1);
+	return (0);
 }
 
-/*int main(void)
+/*int	main(void)
 {
-	void *p;
+	int	i;
 
-	p = (void *)999999;
-	printf(" %p %p ", p);
-	printf(" %p %p ", ft_putaddress_count(p));
+	i = 'a';
+	printf("%d", ft_isalnum(i));
+	i = 'V';
+	printf("%d", ft_isalnum(i));
+	i = '6';
+	printf("%d", ft_isalnum(i));
+	i = '!';
+	printf("%d", ft_isalnum(i));
 }*/

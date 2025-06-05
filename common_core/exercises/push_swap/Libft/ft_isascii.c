@@ -1,41 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putaddress_count.c                              :+:      :+:    :+:   */
+/*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jopedro4 <jopedro4@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/30 20:53:55 by jopedro4          #+#    #+#             */
-/*   Updated: 2025/05/31 22:23:18 by jopedro4         ###   ########.fr       */
+/*   Created: 2025/04/07 22:20:43 by jopedro4          #+#    #+#             */
+/*   Updated: 2025/04/10 18:30:30 by jopedro4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+//#include <stdio.h>
 
-int	ft_putaddress_count(void *p)
+int	ft_isascii(int c)
 {
-	unsigned long	addr;
-	int				count;
-
-	count = 0;
-	if (!p)
+	if (c >= 0 && c <= 127)
 	{
-		count += 5;
-		write(1, "(nil)", 5);
-		return (count);
+		return (1);
 	}
-	addr = (unsigned long)p;
-	write(1, "0x", 2);
-	count += 2;
-	count += ft_putnbrlb_count(addr, "0123456789abcdef");
-	return (count);
+	return (0);
 }
 
-/*int main(void)
+/*int	main(void)
 {
-	void *p;
+	char	i;
 
-	p = (void *)999999;
-	printf(" %p %p ", p);
-	printf(" %p %p ", ft_putaddress_count(p));
+	i = 'a';
+	printf("%d", ft_isascii(i));
+	i = 'o';
+	printf("%d", ft_isascii(i));
 }*/

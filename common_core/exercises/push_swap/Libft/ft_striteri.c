@@ -1,34 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jopedro4 <jopedro4@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: jopedro4 <jopedro4@student.42porto.co      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/03 23:48:07 by jopedro4          #+#    #+#             */
-/*   Updated: 2025/06/05 23:00:23 by jopedro4         ###   ########.fr       */
+/*   Created: 2025/04/19 18:46:37 by jopedro4          #+#    #+#             */
+/*   Updated: 2025/04/19 19:15:59 by jopedro4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	push_swap(char *string)
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	ft_split();
-	
-}
+	unsigned int	i;
 
-int main(int argc, const char  **argv)
-{
-	int	i;
-
-	i = 2;
-	if (argc == 1 || argc == 2 || !argv[1][0])
-		return (0);
-	while (argv[i])
+	i = 0;
+	while (s[i])
 	{
-		argv = ft_split(argv[1], ' ')
+		f(i, &s[i]);
 		i++;
 	}
-	return (0);
 }
+
+/*int	main(void)
+{
+	
+}*/

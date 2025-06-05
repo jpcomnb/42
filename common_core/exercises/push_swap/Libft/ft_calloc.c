@@ -1,46 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbrb_count.c                                 :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jopedro4 <jopedro4@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/26 18:41:21 by jopedro4          #+#    #+#             */
-/*   Updated: 2025/05/31 22:03:15 by jopedro4         ###   ########.fr       */
+/*   Created: 2025/04/15 21:56:56 by jopedro4          #+#    #+#             */
+/*   Updated: 2025/04/27 17:54:16 by jopedro4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_putnbrb_count(unsigned int nbr, char *(base))
+void	*ft_calloc(size_t nmemb, size_t size)
 {
-	unsigned int	b;
-	int				count;
+	void	*ptr;
 
-	count = 0;
-	b = ft_strlen(base);
-	if (nbr < b)
-	{
-		count++;
-		write(1, &base[nbr], 1);
-	}
-	if (nbr >= b)
-	{
-		count++;
-		count += ft_putnbrb_count(nbr / b, base);
-		nbr %= b;
-		write(1, &base[nbr], 1);
-	}
-	return (count);
+	if (size != 0 && nmemb > (SIZE_MAX / size))
+		return (NULL);
+	ptr = malloc(nmemb * size);
+	if (ptr == NULL)
+		return (NULL);
+	ft_bzero(ptr, nmemb * size);
+	return (ptr);
 }
 
 /*int	main(void)
 {
-	int	i;
+	size_t	nmemb;
+	size_t	size;
+	char	*ptr;
 
-	i = 0;
-//	printf(" %x ", 16);
-//	printf("\n");
-	i = ft_putnbrb_count(16, "0123456789abcdef");
-//	printf("\n%i", i);
+	nmemb = 12;
+	size = 8;
+	ptr = (char *)ft_calloc(nmemb, size);
+	while (size > 0)
+		ptr[--size] = 'd';
+	printf("%s", ptr);
+	free(ptr);
+	return (0);
 }*/

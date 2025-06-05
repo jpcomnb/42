@@ -1,46 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbrb_count.c                                 :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jopedro4 <jopedro4@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/26 18:41:21 by jopedro4          #+#    #+#             */
-/*   Updated: 2025/05/31 22:03:15 by jopedro4         ###   ########.fr       */
+/*   Created: 2025/04/10 18:43:19 by jopedro4          #+#    #+#             */
+/*   Updated: 2025/04/23 19:06:40 by jopedro4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_putnbrb_count(unsigned int nbr, char *(base))
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	unsigned int	b;
-	int				count;
-
-	count = 0;
-	b = ft_strlen(base);
-	if (nbr < b)
+	if ((!dest && !src))
 	{
-		count++;
-		write(1, &base[nbr], 1);
+		return (dest);
 	}
-	if (nbr >= b)
+	if (dest > src)
 	{
-		count++;
-		count += ft_putnbrb_count(nbr / b, base);
-		nbr %= b;
-		write(1, &base[nbr], 1);
+		while (n--)
+			((unsigned char *)dest)[n] = ((unsigned char *)src)[n];
+		return (dest);
 	}
-	return (count);
+	ft_memcpy(dest, src, n);
+	return (dest);
 }
 
 /*int	main(void)
 {
-	int	i;
+	int i=100;
+	char	string1[i] = "lorem ipsum dolor sit amet";
 
-	i = 0;
-//	printf(" %x ", 16);
-//	printf("\n");
-	i = ft_putnbrb_count(16, "0123456789abcdef");
-//	printf("\n%i", i);
+	ft_memmove(string1 +1, "consectetuer", 5);
+	printf("%s", string1);
 }*/

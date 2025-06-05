@@ -1,44 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_count.c                                  :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jopedro4 <jopedro4@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/30 19:52:19 by jopedro4          #+#    #+#             */
-/*   Updated: 2025/05/31 21:29:31 by jopedro4         ###   ########.fr       */
+/*   Created: 2025/04/12 17:28:23 by jopedro4          #+#    #+#             */
+/*   Updated: 2025/04/12 18:44:54 by jopedro4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_putstr_count(char *string)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	int	count;
-	int	i;
+	size_t	i;
 
 	i = 0;
-	count = 0;
-	if (!string)
-	{
-		write(1, "(null)", 6);
-		return (6);
-	}
-	if (string[i] == '\0')
+	if (n <= 0)
 		return (0);
-	while (string[i])
+	while (s1[i] && s2[i] && n > 0)
 	{
-		count++;
-		write(1, &string[i], 1);
+		if (((unsigned char)s1[i] != (unsigned char)s2[i]))
+			break ;
+		n--;
+		if (n == 0)
+			break ;
 		i++;
 	}
-	return (count);
+	return ((int)((unsigned char)s1[i] - (unsigned char)s2[i]));
 }
 
 /*int	main(void)
 {
-	char *string= "wow so cool";
+	const char s1[] = "abcdefgh";
+	const char s2[] = "abcdwxyz";
+	int		i;
+	size_t	n;
 
-	printf("%s\n", string);
-	printf("\n%i\n", ft_putstr_count(string));
+	n = 4;
+	i = ft_strncmp(s1, s2, n);
+	printf("the difference between s1 and s2 is: %i", i);
 }*/

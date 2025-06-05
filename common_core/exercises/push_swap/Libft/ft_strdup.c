@@ -1,46 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbrb_count.c                                 :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jopedro4 <jopedro4@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/26 18:41:21 by jopedro4          #+#    #+#             */
-/*   Updated: 2025/05/31 22:03:15 by jopedro4         ###   ########.fr       */
+/*   Created: 2025/04/16 13:22:06 by jopedro4          #+#    #+#             */
+/*   Updated: 2025/04/16 14:37:59 by jopedro4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_putnbrb_count(unsigned int nbr, char *(base))
+char	*ft_strdup(const char *s)
 {
-	unsigned int	b;
-	int				count;
+	size_t	i;
+	char	*ptr;
+	size_t	n;
 
-	count = 0;
-	b = ft_strlen(base);
-	if (nbr < b)
+	n = ft_strlen(s);
+	i = 0;
+	ptr = (char *)malloc((sizeof(char) * n) + 1);
+	if (ptr == NULL)
+		return (NULL);
+	while (n-- > 0)
 	{
-		count++;
-		write(1, &base[nbr], 1);
+		ptr[i] = s[i];
+		i++;
 	}
-	if (nbr >= b)
-	{
-		count++;
-		count += ft_putnbrb_count(nbr / b, base);
-		nbr %= b;
-		write(1, &base[nbr], 1);
-	}
-	return (count);
+	ptr[i] = '\0';
+	return (ptr);
 }
 
 /*int	main(void)
 {
-	int	i;
+	char s[]= "qwerty";
+	char *d;
 
-	i = 0;
-//	printf(" %x ", 16);
-//	printf("\n");
-	i = ft_putnbrb_count(16, "0123456789abcdef");
-//	printf("\n%i", i);
+	d = ft_strdup(s);
+	printf("%s", d);
 }*/

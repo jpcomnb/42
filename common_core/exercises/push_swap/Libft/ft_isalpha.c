@@ -1,46 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbrb_count.c                                 :+:      :+:    :+:   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jopedro4 <jopedro4@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/26 18:41:21 by jopedro4          #+#    #+#             */
-/*   Updated: 2025/05/31 22:03:15 by jopedro4         ###   ########.fr       */
+/*   Created: 2025/04/07 18:12:20 by jopedro4          #+#    #+#             */
+/*   Updated: 2025/04/21 21:49:13 by jopedro4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+//#include <stdio.h>
 #include "libft.h"
 
-int	ft_putnbrb_count(unsigned int nbr, char *(base))
+int	ft_isalpha(int c)
 {
-	unsigned int	b;
-	int				count;
-
-	count = 0;
-	b = ft_strlen(base);
-	if (nbr < b)
-	{
-		count++;
-		write(1, &base[nbr], 1);
-	}
-	if (nbr >= b)
-	{
-		count++;
-		count += ft_putnbrb_count(nbr / b, base);
-		nbr %= b;
-		write(1, &base[nbr], 1);
-	}
-	return (count);
+	if (c >= 'a' && c <= 'z')
+		return (1);
+	if (c >= 'A' && c <= 'Z')
+		return (1);
+	return (0);
 }
 
 /*int	main(void)
 {
 	int	i;
 
-	i = 0;
-//	printf(" %x ", 16);
-//	printf("\n");
-	i = ft_putnbrb_count(16, "0123456789abcdef");
-//	printf("\n%i", i);
+	i = 'a';
+	printf("%i", ft_isalpha(i));
+	i = '6';
+	printf("%i", ft_isalpha(i));
 }*/

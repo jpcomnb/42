@@ -1,44 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_count.c                                  :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jopedro4 <jopedro4@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/30 19:52:19 by jopedro4          #+#    #+#             */
-/*   Updated: 2025/05/31 21:29:31 by jopedro4         ###   ########.fr       */
+/*   Created: 2025/04/16 14:43:03 by jopedro4          #+#    #+#             */
+/*   Updated: 2025/04/16 16:39:13 by jopedro4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_putstr_count(char *string)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	int	count;
-	int	i;
+	char	*c;
+	size_t	i;
 
 	i = 0;
-	count = 0;
-	if (!string)
+	if (start >= (unsigned int)ft_strlen(s))
+		return (ft_strdup(""));
+	if (ft_strlen(s) - start < len)
+		len = ft_strlen(s) - start;
+	c = (char *)ft_calloc(len + 1, sizeof(char));
+	if (c == NULL)
+		return (NULL);
+	while (len-- > 0)
 	{
-		write(1, "(null)", 6);
-		return (6);
-	}
-	if (string[i] == '\0')
-		return (0);
-	while (string[i])
-	{
-		count++;
-		write(1, &string[i], 1);
+		c[i] = s[start + i];
 		i++;
 	}
-	return (count);
+	return (c);
 }
 
 /*int	main(void)
 {
-	char *string= "wow so cool";
+	char s[] = "asdqwe";
+	unsigned int	start;
+	size_t	len;
 
-	printf("%s\n", string);
-	printf("\n%i\n", ft_putstr_count(string));
+	start = 8;
+	len = 1;
+	printf("%s", ft_substr(s, start, len))
 }*/

@@ -1,19 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jopedro4 <jopedro4@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: jopedro4 <jopedro4@student.42porto.co      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/05 19:05:59 by jopedro4          #+#    #+#             */
-/*   Updated: 2025/06/05 19:14:35 by jopedro4         ###   ########.fr       */
+/*   Created: 2025/04/20 18:36:09 by jopedro4          #+#    #+#             */
+/*   Updated: 2025/04/23 20:12:18 by jopedro4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-# include "libft.h"
+t_list	*ft_lstnew(void *content)
+{
+	t_list	*new;
 
-void	push_swap(char	*string);
-#endif
+	new = malloc(sizeof(t_list));
+	if (!new)
+		return (NULL);
+	new->content = content;
+	new->next = NULL;
+	return (new);
+}

@@ -1,46 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbrb_count.c                                 :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jopedro4 <jopedro4@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/26 18:41:21 by jopedro4          #+#    #+#             */
-/*   Updated: 2025/05/31 22:03:15 by jopedro4         ###   ########.fr       */
+/*   Created: 2025/02/20 20:43:54 by jopedro4          #+#    #+#             */
+/*   Updated: 2025/05/28 19:10:31 by jopedro4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
+/*void só recebe valores não devolve*/
+/*ft_putchar(char c ) define a variavel c para ser usada no write*/
+/*char defines what type of interger it is, 
+char is does not work with numbers*/
+/*ft_putchar('c') defines ft_putchar as the letter c*/
 #include "libft.h"
 
-int	ft_putnbrb_count(unsigned int nbr, char *(base))
+void	ft_putchar(int c)
 {
-	unsigned int	b;
-	int				count;
-
-	count = 0;
-	b = ft_strlen(base);
-	if (nbr < b)
-	{
-		count++;
-		write(1, &base[nbr], 1);
-	}
-	if (nbr >= b)
-	{
-		count++;
-		count += ft_putnbrb_count(nbr / b, base);
-		nbr %= b;
-		write(1, &base[nbr], 1);
-	}
-	return (count);
+	write(1, &c, 1);
 }
 
 /*int	main(void)
 {
-	int	i;
-
-	i = 0;
-//	printf(" %x ", 16);
-//	printf("\n");
-	i = ft_putnbrb_count(16, "0123456789abcdef");
-//	printf("\n%i", i);
+	ft_putchar('c');
 }*/
