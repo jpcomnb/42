@@ -17,7 +17,8 @@
 
 typedef struct	list_s
 {
-	int		data;
+	int		stack_a;
+	int		stack_b
 	list_s	*next;
 	list_s	*prev;
 }	list_t;
