@@ -6,7 +6,7 @@
 /*   By: jopedro4 <jopedro4@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/05 19:05:59 by jopedro4          #+#    #+#             */
-/*   Updated: 2025/07/05 20:45:29 by jopedro4         ###   ########.fr       */
+/*   Updated: 2025/07/22 16:06:07 by jopedro4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 typedef struct	list_s
 {
-	int		stack;
+	int		num;
 	int		cost;
 	int		final_position;
 	list_s	*next;
