@@ -6,31 +6,84 @@
 /*   By: jopedro4 <jopedro4@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 19:33:00 by jopedro4          #+#    #+#             */
-/*   Updated: 2025/07/22 18:07:16 by jopedro4         ###   ########.fr       */
+/*   Updated: 2025/07/26 21:31:22 by jopedro4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	lst_swap(list_t **lst)
+list_t list_remove_front(list_t **lst)
 {
-	list_t	*temp;
-	int		temp_nbr;
-	int		temp_nbr2;
+	list_t *node;
 
-	if (!lst || !(lst->next))
+	if (!lst)
 		return ;
-	lst->prev = ;
+	node->num = (*lst)->num;
+	node->next = (*lst)->next;
+	node->prev = (*lst)->prev;
+	(*lst)->next->prev = NULL;
+	free(lst);
+	return (*node);
 }
 
-void	push(list_t *lst_1, list_t *lst_2)
+list_t list_remove_back(list_t **lst)
 {
-	list_t *temp;
-	list_t *temp2;
+	if (lst)
+	{
+		list_t	node;
+		ft_lstlast(lst);
+		node->num = lst->num;
+		node->next = lst->next;
+		node->prev = lst->prev;
+		free(lst);
+	}
+	return (node);
+}
 
-	if (!lst_2 || !lst_2->)
-		return ;
-	temp = lst_1;
-	temp2 = lst_2;
-	lst;
+void list_add_front(list_t **lst, list_t *node)
+{
+	if (lst)
+	{
+		node->next = *lst;
+		*lst = node;
+	}	
+}
+
+void list_add_back(list_t *lst, list_t *node)
+{
+	list_t	*back;
+
+	if (lst)
+	{
+		if (*lst)
+		{
+			back = ft_lstlast(*lst);
+			back->next = node;
+		}
+		else
+			*lst = node;
+	}	
+}
+
+int	main(void)
+{
+	list_t	*lst;
+	list_t	*node;
+	int	i;
+
+	i = 0;
+	lst = ft_calloc(6, sizeof(list_t));
+	while (i <= 5)
+	{
+		lst->num = i;
+		lst = lst->next;
+		i++;
+	}
+	while (i >= 0)
+	{
+		lst = lst->prev;
+		i--;
+	}
+	node = list_remove_front(lst);
+	printf("%i", node);
 }

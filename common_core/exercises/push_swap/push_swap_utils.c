@@ -1,0 +1,50 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap_utils.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jopedro4 <jopedro4@student.42porto.com>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/04/23 21:45:30 by jopedro4          #+#    #+#             */
+/*   Updated: 2025/07/27 01:08:08 by jopedro4         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "push_swap.h"
+
+list_t	*ft_lstlast(list_t *lst)
+{
+	t_list	*current;
+
+	current = lst;
+	if (!current)
+		return (NULL);
+	while (current->next != NULL)
+		current = current->next;
+	return (current);
+}
+
+list_t	*ft_lstfirst(list_t *lst)
+{
+	list_t	*current;
+
+	current = lst;
+	if (!current)
+		return (NULL);
+	while (current->prev != NULL)
+		current = current->prev;
+	return (current);
+}
+
+bool	check_char(char *string)
+{
+	bool check;
+
+	if (string[i])
+	{
+		while (string[i] >= '0' && string[i] <= '9' || string[i] )
+		{
+			i++;
+		}
+	}
+}
