@@ -6,7 +6,7 @@
 /*   By: jopedro4 <jopedro4@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 21:45:30 by jopedro4          #+#    #+#             */
-/*   Updated: 2025/07/27 01:08:08 by jopedro4         ###   ########.fr       */
+/*   Updated: 2025/07/27 22:18:40 by jopedro4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,15 +36,52 @@ list_t	*ft_lstfirst(list_t *lst)
 	return (current);
 }
 
-bool	check_char(char *string)
+size_t	ft_strlen(const char *c)
 {
-	bool check;
+	size_t	i;
 
+	i = 0;
+	while (c[i] != '\0')
+	{
+		i++;
+	}
+	return (i);
+}
+
+bool	ft_check_char(char *string)
+{
+	bool 	check;
+	int		i;
+	int		b;
+
+	check = false;
 	if (string[i])
 	{
-		while (string[i] >= '0' && string[i] <= '9' || string[i] )
+		b = ft_strlen(string);
+		while ((string[i] >= '0' && string[i] <= '9') \
+			 || ((string[i] >= 9 && string[i] <= 13) || string[i] == 27))
 		{
 			i++;
 		}
+		if (b > i)
+		{
+			check = true;
+		}
 	}
+	return (check);
+}
+
+bool	check_order(list_t *stack)
+{
+	bool	check;
+
+	if (!stack)
+		return ;
+	check = false;
+	while (stack->next != NULL && stack->num <= stack->next->num)
+	{	
+		stack= stack-> next;
+	}
+	check = true;
+	return (check);
 }

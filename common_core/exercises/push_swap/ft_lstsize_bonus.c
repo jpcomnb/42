@@ -1,22 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_commands.c                               :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jopedro4 <jopedro4@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/28 22:53:19 by jopedro4          #+#    #+#             */
-/*   Updated: 2025/07/28 23:27:26 by jopedro4         ###   ########.fr       */
+/*   Created: 2025/04/23 21:30:00 by jopedro4          #+#    #+#             */
+/*   Updated: 2025/04/23 21:57:07 by jopedro4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void ft_swap_a(list_t **list)
+#include "libft.h"
+
+int	ft_lstsize(list_t *lst)
 {
-	list_t *temp;
+	int		i;
+	list_t	*current;
 
-	if(list)
+	i = 0;
+	current = lst;
+	if (current)
 	{
-		
-
+		while (current)
+		{
+			current = current->next;
+			i++;
+		}
 	}
+	return (i);
 }
