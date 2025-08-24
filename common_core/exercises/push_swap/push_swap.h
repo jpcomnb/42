@@ -6,7 +6,7 @@
 /*   By: jopedro4 <jopedro4@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/05 19:05:59 by jopedro4          #+#    #+#             */
-/*   Updated: 2025/07/26 20:53:38 by jopedro4         ###   ########.fr       */
+/*   Updated: 2025/08/23 18:17:54 by jopedro4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,14 @@
 typedef struct	list_s
 {
 	int		num;
+	int		index;
+	int		cost;
+	bool	above_median;
+	bool	cheapest;
+
 	struct list_s	*next;
 	struct list_s	*prev;
+	struct list_s	*target_node;
 }	list_t;
 
 list_t list_remove_front(list_t **lst);

@@ -6,11 +6,12 @@
 /*   By: jopedro4 <jopedro4@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/03 23:48:07 by jopedro4          #+#    #+#             */
-/*   Updated: 2025/07/27 23:17:44 by jopedro4         ###   ########.fr       */
+/*   Updated: 2025/08/24 18:37:37 by jopedro4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
 
 void	push_swap(list_t *stack_a)
 {
@@ -20,32 +21,47 @@ void	push_swap(list_t *stack_a)
 
 	sort_a = false;
 	empty_b = true;
+	if (check_order(list_t stack_a) == true)
+	{
+		sort_a = true;
+		return ;
+	}
 	while (sort_a == false && empty_b == false)
-	{	
-		if (check_order(list_t stack_a) == true)
-		{
-			sort_a = true;
-		}
+	{
+		
 	}
 }
 
 int main(int argc, const char  **argv)
 {
-	int		i;
-	list_t	*list;
-	char	**chars;
-	bool	check_c;
+	list_t 	list_a;
+	list_t 	list_b;
+	char 	**strings;
 
-	i = 0;
-	if (argc == 1 || argc == 2 || !argv[1][0])
+	list_a = NULL;
+	list_b = NULL;
+	if (argc == 1 || argc == 2 && !argv[1][0])
 		return (0);
-	if (argc == 2)
+	else if (argc == 2)
+		strings = ft_split(argv + 1, " ");
+	ft_initialize_stack(strings, &list_a);
+	if (!check_sort(list_a))
 	{
-		check_cha r= ft_check_char(argv[1]);
+		if (ft_lstsize(list_a) == 2)
+			ft_swap_a(&list_a);
+		if (ft_lst_size(list_a) == 3)
+			ft_sort_small(&list_a);
+	}
+	ft_free_list(&list_a);
+	return (0);
+}
+
+
+	/*	check_c = ft_check_char(argv[1]);
 		if (check_char == false)
 			chars = ft_split(argv[1], ' ');
 		else
-			return (write(1, "Error", 5));
+			return (write(1, "Error\n", 6));
 		while (chars[i])
 		{
 			list->num = ft_atoi(chars[i]);
@@ -56,8 +72,4 @@ int main(int argc, const char  **argv)
 		{
 			list = list->prev;
 		}
-	}
-	push_swap(list);
-	free(;
-	return (0);
-}
+	}*/
