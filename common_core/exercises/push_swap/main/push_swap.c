@@ -6,7 +6,7 @@
 /*   By: jopedro4 <jopedro4@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/03 23:48:07 by jopedro4          #+#    #+#             */
-/*   Updated: 2025/08/24 18:37:37 by jopedro4         ###   ########.fr       */
+/*   Updated: 2025/09/02 16:31:57 by jopedro4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,10 @@ void	push_swap(list_t *stack_a)
 	}
 	while (sort_a == false && empty_b == false)
 	{
-		
+		while (len_a-- >  3 && !check_sort(*stack_a))
+		{
+			treat_list_a()
+		}
 	}
 }
 
@@ -52,6 +55,8 @@ int main(int argc, const char  **argv)
 		if (ft_lst_size(list_a) == 3)
 			ft_sort_small(&list_a);
 	}
+	else
+		push_swap(&list_a, &list_b);
 	ft_free_list(&list_a);
 	return (0);
 }
