@@ -6,7 +6,7 @@
 /*   By: jopedro4 <jopedro4@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/03 23:48:07 by jopedro4          #+#    #+#             */
-/*   Updated: 2025/09/02 16:31:57 by jopedro4         ###   ########.fr       */
+/*   Updated: 2025/09/07 19:09:42 by jopedro4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	push_swap(list_t *stack_a)
 	{
 		while (len_a-- >  3 && !check_sort(*stack_a))
 		{
-			treat_list_a()
+			treat_list_a();
 		}
 	}
 }
@@ -40,27 +40,25 @@ int main(int argc, const char  **argv)
 	list_t 	list_a;
 	list_t 	list_b;
 	char 	**strings;
+	bool	error;
 
 	list_a = NULL;
 	list_b = NULL;
 	if (argc == 1 || argc == 2 && !argv[1][0])
 		return (0);
-	else if (argc == 2)
-		strings = ft_split(argv + 1, " ");
-	ft_initialize_stack(strings, &list_a);
-	if (!check_sort(list_a))
+	error = ft_initialize_stack(argv, &list_a);
+	if (!check_sort(list_a) && !error)
 	{
 		if (ft_lstsize(list_a) == 2)
 			ft_swap_a(&list_a);
 		if (ft_lst_size(list_a) == 3)
 			ft_sort_small(&list_a);
 	}
-	else
+	else if(!error)
 		push_swap(&list_a, &list_b);
 	ft_free_list(&list_a);
 	return (0);
 }
-
 
 	/*	check_c = ft_check_char(argv[1]);
 		if (check_char == false)

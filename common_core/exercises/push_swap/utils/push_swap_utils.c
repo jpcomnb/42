@@ -52,9 +52,9 @@ bool	ft_check_char(char *string)
 {
 	bool 	check;
 	int		i;
-	int		b;
 
 	check = false;
+	i = 0;
 	if (string[i])
 	{
 		b = ft_strlen(string);
@@ -63,7 +63,7 @@ bool	ft_check_char(char *string)
 		{
 			i++;
 		}
-		if (b > i)
+		if (i > 0)
 		{
 			check = true;
 		}

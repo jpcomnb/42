@@ -6,9 +6,11 @@
 /*   By: jopedro4 <jopedro4@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/23 20:22:50 by jopedro4          #+#    #+#             */
-/*   Updated: 2025/09/02 12:14:05 by jopedro4         ###   ########.fr       */
+/*   Updated: 2025/09/07 19:09:46 by jopedro4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "push_swap.h"
 
 void	ft_free_list(list_t **list)
 {
@@ -31,5 +33,10 @@ void	ft_free_list(list_t **list)
 void	ft_free_error(list_t, )
 {
 	free_stack(&list);
+	write(1, "Error\n", 6);
+}
+
+void	ft_error_nfree()
+{
 	write(1, "Error\n", 6);
 }
