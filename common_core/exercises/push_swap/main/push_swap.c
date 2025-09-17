@@ -6,18 +6,19 @@
 /*   By: jopedro4 <jopedro4@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/03 23:48:07 by jopedro4          #+#    #+#             */
-/*   Updated: 2025/09/07 19:09:42 by jopedro4         ###   ########.fr       */
+/*   Updated: 2025/09/17 23:05:24 by jopedro4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 
-void	push_swap(list_t *stack_a)
+void	push_swap(list_t *stack_a, list_t *stack_b)
 {
 	bool	sort_a;
 	bool	empty_b;
 	list_t	stack_b;
+	int		size_a;
 
 	sort_a = false;
 	empty_b = true;
@@ -28,9 +29,15 @@ void	push_swap(list_t *stack_a)
 	}
 	while (sort_a == false && empty_b == false)
 	{
-		while (len_a-- >  3 && !check_sort(*stack_a))
+		while (size_a-- >  3 && !check_order(stack_a))
 		{
 			treat_list_a();
+		}
+		ft_sort_small(stack_a);
+		while (*stack_b)
+		{
+			
+			
 		}
 	}
 }
@@ -51,28 +58,11 @@ int main(int argc, const char  **argv)
 	{
 		if (ft_lstsize(list_a) == 2)
 			ft_swap_a(&list_a);
-		if (ft_lst_size(list_a) == 3)
+		else if (ft_lst_size(list_a) == 3)
 			ft_sort_small(&list_a);
+		else
+			push_swap(&list_a, &list_b);
 	}
-	else if(!error)
-		push_swap(&list_a, &list_b);
 	ft_free_list(&list_a);
 	return (0);
 }
-
-	/*	check_c = ft_check_char(argv[1]);
-		if (check_char == false)
-			chars = ft_split(argv[1], ' ');
-		else
-			return (write(1, "Error\n", 6));
-		while (chars[i])
-		{
-			list->num = ft_atoi(chars[i]);
-			i++;
-			list = list->next;
-		}
-		while (list->prev != NULL)
-		{
-			list = list->prev;
-		}
-	}*/

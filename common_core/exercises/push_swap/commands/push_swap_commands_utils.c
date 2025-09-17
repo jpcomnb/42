@@ -6,7 +6,7 @@
 /*   By: jopedro4 <jopedro4@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 19:33:00 by jopedro4          #+#    #+#             */
-/*   Updated: 2025/08/23 13:51:28 by jopedro4         ###   ########.fr       */
+/*   Updated: 2025/09/17 23:05:39 by jopedro4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void list_add_front(list_t **lst, list_t *node)
 	{
 		node->next = *lst;
 		*lst = node;
-	}	
+	}
 }
 
 void list_add_back(list_t *lst, list_t *node)
