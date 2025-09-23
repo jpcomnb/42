@@ -6,7 +6,7 @@
 /*   By: jopedro4 <jopedro4@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 21:45:30 by jopedro4          #+#    #+#             */
-/*   Updated: 2025/09/17 23:05:44 by jopedro4         ###   ########.fr       */
+/*   Updated: 2025/09/23 20:52:32 by jopedro4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,7 @@ size_t	ft_strlen(const char *c)
 
 	i = 0;
 	while (c[i] != '\0')
-	{
 		i++;
-	}
 	return (i);
 }
 

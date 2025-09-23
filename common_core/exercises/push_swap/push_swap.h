@@ -23,7 +23,7 @@ typedef struct	list_s
 	int		num;
 	int		index;
 	int		cost;
-	bool	above_median;
+	bool	over_median;
 	bool	cheapest;
 
 	struct list_s	*next;
