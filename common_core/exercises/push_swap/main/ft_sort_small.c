@@ -6,41 +6,55 @@
 /*   By: jopedro4 <jopedro4@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 23:19:17 by jopedro4          #+#    #+#             */
-/*   Updated: 2025/07/28 23:27:33 by jopedro4         ###   ########.fr       */
+/*   Updated: 2025/09/26 20:18:14 by jopedro4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void ft_sort_small2(list_t **lst)
+void	ft_sort_small1(list_t **lst)
 {
-	if(lst->num < lst->next->num && lst->next->num > lst->next->next->num \
-		&& lst->num > lst->next->next->num)
-	{
-		
-	}	
-}
-
-void	ft_sort_small(list_t **lst)
-{
-	lst	temp;
-	lst	temp2;
-	if (ft_lstsize(lst) <= 3)
-	{
-		if (lst->num < lst->next->num && lst->next->num > \
-			 lst->next->next->num && lst->num < lst->next->next->num)
-		{
+	list_t temp;
 			temp = list_remove_back(lst);
 			list_add_front(lst, temp);
 			write(1, "rra\n", 4);
 			temp = list_remove_front(lst);
-			temp2 = list_remove_front(lst)
+			temp2 = list_remove_front(lst);
 			list_add_front(lst, temp2);
 			list_add_front(lst, temp);
 			write(1, "sa\n", 3);
+}
+void ft_sort_small2(list_t **lst)
+{
+	list_t temp;
+
+	temp = list_remove_back(lst);
+	list_add_front(lst, temp);
+	write(1, "rra\n", 4);
+}
+
+void	ft_sort_small(list_t **lst)
+{
+	list_t	temp;
+	list_t	temp2;
+
+	if (ft_lstsize(lst) <= 3 && !check_sort(lst))
+	{
+		if (lst->num < lst->next->num && lst->next->num > \
+			 lst->next->next->num && lst->num < lst->next->next->num)
+			ft_sort_small1(*lst);
+		if (lst->num < lst->next->num && lst->next->num > lst->next->next->num \
+		&& lst->num > lst->next->next->num)
+			ft_sort_small2(*lst);
+		if (lst->num > lst->next->num && lst->num < lst->next->next->num && \
+			lst->next->num > lst->)
+			ft_sort_small3(*lst);
+		else
+		{
+			ft_rotate_a(lst);
+			if (!check_sort(lst))
+				ft_swap_a(*list);
 		}
-		ft_sort_small2(lst);
-		ft_sort_small3(lst);
 	}
 }
 

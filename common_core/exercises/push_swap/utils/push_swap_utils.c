@@ -78,8 +78,9 @@ bool	check_order(list_t *stack)
 	check = false;
 	while (stack->next != NULL && stack->num <= stack->next->num)
 	{	
-		stack= stack-> next;
+		stack = stack->next;
 	}
-	check = true;
+	if (stack->next == NULL)
+		check = true;
 	return (check);
 }

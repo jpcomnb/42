@@ -1,42 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_check_string.c                                  :+:      :+:    :+:   */
+/*   ft_lst_highest.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jopedro4 <jopedro4@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/17 18:39:50 by jopedro4          #+#    #+#             */
-/*   Updated: 2025/09/17 20:59:16 by jopedro4         ###   ########.fr       */
+/*   Created: 2025/09/28 20:12:02 by jopedro4          #+#    #+#             */
+/*   Updated: 2025/09/28 20:24:48 by jopedro4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	*ft_check_string(char *string, bool *error)
+list_t	*ft_lst_highest(list_t *stack)
 {
-	int		i;
-	char	**array;
-	long	*l;
+	long	max;
+	list_t	*max_node;
 
-	i = 0;
-	while (strings[i])
-	{
-		if (!ft_isdigit(string))
-		{
-			error = true;
-			return (NULL); 
-		}
-		i++;
-	}
-	i = 0;
-	array = ft_split(string, ' ');
-	while (array[i])
-	{
-		l[i] = ft_atol(string[i]);
-		i++;
-	}
-	if (l > INT_MAX || l < INT_MIN)
-	{
-		error = true
+	if (!stack)
 		return (NULL);
+	max = LONG_MIN;
+	while (stack)
+	{
+		if (stack->nbr > max)
+		{
+			max = stack->nbr;
+			max_node = stack;
+		}
+		stack = stack->next;
 	}
-	return ((int *)l);
+	return (max_node);
 }
+//Function that searches a list and returns the node with the biggest number
+

@@ -6,7 +6,7 @@
 /*   By: jopedro4 <jopedro4@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/03 23:48:07 by jopedro4          #+#    #+#             */
-/*   Updated: 2025/09/23 20:52:25 by jopedro4         ###   ########.fr       */
+/*   Updated: 2025/09/28 20:08:58 by jopedro4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	push_swap(list_t *stack_a, list_t *stack_b)
 		while (size_a-- >  3 && !check_order(stack_a))
 		{
 			complete_list_a(*stack_a, *stack_b);
-			a_to_b();
+			a_to_b(stack_a, stackb);
 		}
 		ft_sort_small(stack_a);
 		while (*stack_b)
@@ -41,7 +41,7 @@ void	push_swap(list_t *stack_a, list_t *stack_b)
 			b_to_a();
 		}
 		set_index(*stack_a);
-		min_on_top(stack_a, stack_b);
+		min_is_top(stack_a, stack_b);
 	}
 }
 
