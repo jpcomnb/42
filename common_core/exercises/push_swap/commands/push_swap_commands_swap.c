@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-void ft_swap(list_t **list)
+static void ft_swap(list_t **list)
 {
 	list_t *temp;
 	list_t *temp2;

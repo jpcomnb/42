@@ -1,36 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_commands_push.c                          :+:      :+:    :+:   */
+/*   small_to_top.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jopedro4 <jopedro4@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/23 14:40:11 by jopedro4          #+#    #+#             */
-/*   Updated: 2025/08/23 15:25:08 by jopedro4         ###   ########.fr       */
+/*   Created: 2025/10/12 20:40:32 by jopedro4          #+#    #+#             */
+/*   Updated: 2025/10/12 21:04:27 by jopedro4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
-
-static void ft_push(list_t list_dest, list_t list_src)
+void	min_on_top(list_t **stack_a)
 {
-	list_t *temp;
-
-	if(list_dest && list_src)
+	while ((*stack_a)->nbr != find_min(*stack_a)->nbr)
 	{
-		temp = list_remove_front(list_src);
-		list_add_front(list_dest, temp);
+		if (find_min(*stack_a)->above_median)
+			ft_rotate_a(stack_a);
+		else
+			ft_reverse_rotate_a(stack_a);
 	}
-}
-
-void ft_push_a(list_t list_a, list_t list_b)
-{
-	ft_push(list_a, list_b);
-	write(1, "pa\n", 3);
-}
-
-void ft_push_b(list_t list_b, list_t list_a)
-{
-	ft_push(list_b, list_a);
-	write(1, "pb\n", 3);
 }

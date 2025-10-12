@@ -9,7 +9,7 @@
 /*   Updated: 2025/09/28 20:49:03 by jopedro4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-list_t	*ft_lst_smallest()
+list_t	*ft_lst_smallest(list_t *stack)
 {
 	long	min;
 	list_t	*min_node;
@@ -19,9 +19,9 @@ list_t	*ft_lst_smallest()
 	min = LONG_MAX; 
 	while (stack)
 	{
-		if (stack->nbr < min)
+		if (stack->num < min)
 		{
-			min = stack->nbr;
+			min = stack->num;
 			min_node = stack;
 		}
 		stack = stack->next;

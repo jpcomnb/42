@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../push_swap.h"
+
 int	*ft_check_string(char *string, bool *error)
 {
 	int		i;

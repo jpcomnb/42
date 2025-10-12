@@ -83,18 +83,18 @@ static void	set_cost__a(list_t *stack_a, list_t *stack_b)
 
 void	set_cheapest(list_t *stack)
 {
-	long	cheapest_value;
+	long	cheapest_num;
 	list_t	*cheapest_node;
 
 	if (!stack)
 		return ;
-	cheapest_value = LONG_MAX;
+	cheapest_num = LONG_MAX;
 	while (stack)
 	{
 		if (stack->push_cost < cheapest_value)
 		{
-			cheapest_value = stack->push_cost;
-			cheaspest_node = stack;
+			cheapest_num = stack->push_cost;
+			cheapest_node = stack;
 		}
 		stack = stack->next;
 	}

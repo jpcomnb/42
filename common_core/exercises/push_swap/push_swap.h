@@ -17,6 +17,7 @@
 # include <unistd.h>
 # include <stdbool.h>
 # include <stdio.h>
+# include <limits.h>
 
 typedef struct	list_s
 {
@@ -31,10 +32,32 @@ typedef struct	list_s
 	struct list_s	*target_node;
 }	list_t;
 
+//commands
+void ft_push_a(list_t list_a, list_t list_b);
+void ft_push_b(list_t list_b, list_t list_a);
+void ft_reverse_rotate_a(list_t **list);
+void ft_reverse_rotate_b(list_t **list);
+void ft_reverse_rotate_ab(list_t **list_a, list_t **list_b);
+void ft_rotate_a(list_t **list);
+void ft_rotate_b(list_t **list);
+void ft_rotate_ab(list_t **list_a, list_t **list_b);
+void ft_swap_a(list_t **list);
+void ft_swap_b(list_t **list);
+void ft_swap_ab(list_t **list_a, list_t **list_b);
+//command utils
 list_t list_remove_front(list_t **lst);
 list_t list_remove_back(list_t **lst);
 void list_add_front(list_t **lst, list_t *node);
 void list_add_back(list_t *lst, list_t *node);
-list_t *ft_lstlast(list_t *lst);
-
+//errors
+int	*ft_check_string(char *string, bool *error);
+void	ft_free_list(list_t **list);
+void	ft_free_error(list_t);
+void	ft_error_nfree();
+//main
+void	push_swap(list_t *stack_a, list_t *stack_b);
+bool	ft_initialize_stack(char **strings, list_t list_a);
+void	ft_sort_small(list_t **lst);
+//utils
+void	a_to_b(list_t **stack_a, list_t **stack_b);
 #endif

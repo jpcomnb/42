@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	ft_free_list(list_t **list)
 {
@@ -30,7 +30,7 @@ void	ft_free_list(list_t **list)
 	*list = NULL;
 }
 
-void	ft_free_error(list_t, )
+void	ft_free_error(list_t)
 {
 	free_stack(&list);
 	write(1, "Error\n", 6);

@@ -10,7 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
+
+static bool	ft_many_init(char **strings, list_t list_a);
+static void	ft_list_add_num(int n, list_t *list_a);
+static void	ft_list_add_num(int n, list_t *list_a);
+static bool	ft_one_init(char *strings, list_t *list_a);
 
 bool	ft_initialize_stack(char **strings, list_t list_a)
 {

@@ -10,7 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-void ft_reverse_rotate(list_t **list)
+#include "../push_swap.h"
+
+static void ft_reverse_rotate(list_t **list)
 {
 	list_t temp;
 

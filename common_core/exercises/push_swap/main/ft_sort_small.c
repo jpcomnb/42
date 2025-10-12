@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-void	ft_sort_small1(list_t **lst)
+static void	ft_sort_small1(list_t **lst)
 {
 	list_t temp;
 			temp = list_remove_back(lst);
@@ -24,7 +24,7 @@ void	ft_sort_small1(list_t **lst)
 			list_add_front(lst, temp);
 			write(1, "sa\n", 3);
 }
-void ft_sort_small2(list_t **lst)
+static void ft_sort_small2(list_t **lst)
 {
 	list_t temp;
 

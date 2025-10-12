@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 
 void	push_swap(list_t *stack_a, list_t *stack_b)
@@ -32,13 +32,13 @@ void	push_swap(list_t *stack_a, list_t *stack_b)
 		while (size_a-- >  3 && !check_order(stack_a))
 		{
 			complete_list_a(*stack_a, *stack_b);
-			a_to_b(stack_a, stackb);
+			a_to_b(stack_a, stack_b);
 		}
 		ft_sort_small(stack_a);
 		while (*stack_b)
 		{
-			complete_list_b();
-			b_to_a();
+			complete_list_b(*stack_a, *stack_b);
+			b_to_a(stack_a, stack_b);
 		}
 		set_index(*stack_a);
 		min_is_top(stack_a, stack_b);

@@ -12,15 +12,15 @@
 
 void	a_to_b(list_t **stack_a, list_t **stack_b)
 {
-	t_stack_node	*cheapest_node;
+	list_t	*cheapest;
 
-	cheapest_node = get_cheapest(*a); 
+	cheapest = find_cheapest(*stack_a); 
 	if (cheapest_node->above_median && cheapest_node->target_node->above_median)
 		rotate_both(a, b, cheapest_node);
-	else if (!(cheapest_node->above_median) && !(cheapest_node->target_node->above_median))
-		rev_rotate_both(a, b, cheapest_node);
-	prep_for_push(a, cheapest_node, 'a');
-	prep_for_push(b, cheapest_node->target_node, 'b');
-	pb(b, a, false);
+	else if (!(cheapest->above_median) && !(cheapest->target_node->above_median))
+		rev_rotate_both(stack_a, stack_b, cheapest);
+	prep_for_push(stack_a, cheapest, 'a');
+	prep_for_push(stack_b, cheapest->target_node, 'b');
+	ft_push_b(stack_b, stack_a);
 }
 
