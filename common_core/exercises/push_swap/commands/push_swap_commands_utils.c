@@ -16,8 +16,9 @@ t_list *list_remove_front(t_list **lst)
 {
 	t_list *node;
 
+	node = NULL;
 	if (!lst)
-		return ;
+		return (NULL) ;
 	node->num = (*lst)->num;
 	node->next = (*lst)->next;
 	node->prev = (*lst)->prev;
@@ -28,13 +29,16 @@ t_list *list_remove_front(t_list **lst)
 
 t_list *list_remove_back(t_list **lst)
 {
+	t_list	*node;
+	t_list	*end_node;
+	
+	node = NULL;
 	if (lst)
 	{
-		t_list	node;
-		ft_lstlast(lst);
-		node->num = lst->num;
-		node->next = lst->next;
-		node->prev = lst->prev;
+		end_node = ft_lstlast(*lst);
+		node->num = end_node->num;
+		node->next = end_node->next;
+		node->prev = end_node->prev;
 		free(lst);
 	}
 	return (node);
@@ -55,13 +59,13 @@ void list_add_back(t_list *lst, t_list *node)
 
 	if (lst)
 	{
-		if (*lst)
+		if (node)
 		{
-			back = ft_lstlast(*lst);
+			back = ft_lstlast(lst);
 			back->next = node;
 		}
 		else
-			*lst = node;
+			*lst = *node;
 	}	
 }
 /*

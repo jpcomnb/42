@@ -12,32 +12,29 @@
 
 #include "../push_swap.h"
 
-static bool	ft_many_init(char **strings, t_list list_a);
+static bool	ft_many_init(char **strings, t_list *list_a);
 static void	ft_list_add_num(int n, t_list *list_a);
 static void	ft_list_add_num(int n, t_list *list_a);
 static bool	ft_one_init(char *strings, t_list *list_a);
+static int	check_duplicate(t_list list_a);
 
 bool	ft_initialize_stack(char **strings, t_list list_a)
 {
-	int		num;
 	char	**chars;
 	bool	error;
 
-	i = 1;
-	l = 0;
-	num = 0;
 	if (!strings)
-		return ;
+		return (NULL);
 	if (strings[3])
-		error = ft_many_init(strings, list_t &list_a);
+		error = ft_many_init(strings, &list_a);
 	else
-		error = ft_one_init(strings[2], list_t &list_a);
-	check_duplicate(&list_a);
+		error = ft_one_init(strings[2], &list_a);
+	error = check_duplicate(&list_a);
 	return (error);
 
 }
 
-static bool	ft_many_init(char **strings, t_list list_a)
+static bool	ft_many_init(char **strings, t_list *list_a)
 {
 	long 	l;
 	int		i;
@@ -97,6 +94,37 @@ static bool	ft_one_init(char *strings, t_list *list_a)
 		i++;
 	}
 	return (error);
+}
+
+static bool	check_duplicate(t_list list_a)
+{
+	int	size;
+	int	start;
+	int	*array;
+	int	times;
+	
+	
+	start = 0;
+	i = ft_lstsize(list_a);
+	array = ft_calloc(i, sizeof(int));
+	while (start < i)
+	{
+		array[start] = list_a->num;
+		start++;
+		list_a = list_a->next;
+	}
+	start = 0;
+	times = size;
+	while (times--)
+	{
+		start = 0;
+		while ()
+		{
+			
+		}
+		break ;
+	}
+	return (bool)
 }
 
 /*first if when each number is its own 

@@ -31,7 +31,7 @@ void ft_swap_a(t_list **list)
 	if (list)
 	{
 		ft_swap(list);
-		write(1, "sa\n, 3");
+		write(1, "sa\n", 3);
 	}
 }
 
@@ -40,7 +40,7 @@ void ft_swap_b(t_list **list)
 	if (list)
 	{
 		ft_swap(list);
-		write(1, "sb\n, 3");
+		write(1, "sb\n", 3);
 	}
 }
 

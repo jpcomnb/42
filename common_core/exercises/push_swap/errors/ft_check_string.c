@@ -16,14 +16,15 @@ int	*ft_check_string(char *string, bool *error)
 {
 	int		i;
 	char	**array;
-	long	*l;
+	long	l;
 
 	i = 0;
-	while (strings[i])
+	l = 0;
+	while (string[i])
 	{
-		if (!ft_isdigit(string))
+		if (!ft_isdigit(string[i]))
 		{
-			error = true;
+			*error = true;
 			return (NULL); 
 		}
 		i++;
@@ -32,12 +33,12 @@ int	*ft_check_string(char *string, bool *error)
 	array = ft_split(string, ' ');
 	while (array[i])
 	{
-		l[i] = ft_atol(string[i]);
+		l = ft_atol(&string[i]);
 		i++;
 	}
 	if (l > INT_MAX || l < INT_MIN)
 	{
-		error = true
+		*error = true;
 		return (NULL);
 	}
 	return ((int *)l);

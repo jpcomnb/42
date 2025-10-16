@@ -1,42 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_error.c                                  :+:      :+:    :+:   */
+/*   isdigit.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jopedro4 <jopedro4@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/23 20:22:50 by jopedro4          #+#    #+#             */
-/*   Updated: 2025/09/07 19:09:46 by jopedro4         ###   ########.fr       */
+/*   Created: 2025/04/07 18:41:08 by jopedro4          #+#    #+#             */
+/*   Updated: 2025/04/07 22:19:19 by jopedro4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+//#include <stdio.h>
 
-void	ft_free_list(t_list **list)
+int	ft_isdigit(int c)
 {
-	t_list	*temp;
-	t_list	*node;
-
-	if (!list)
-		return ;
-	node = *list;
-	while (node)
-	{
-		temp = node->next;
-		node ->num = 0;
-		free(node);
-		node = temp;
-	}
-	*list = NULL;
+	if (c >= '0' && c <= '9')
+		return (1);
+	return (0);
 }
 
-void	ft_free_error(t_list *list)
+/*int	main(void)
 {
-	ft_free_list(&list);
-	write(1, "Error\n", 6);
-}
+	int	i;
 
-void	ft_error_nfree()
-{
-	write(1, "Error\n", 6);
-}
+	i = 'a'
+	printf("%d", ft_isdigit(i));
+	i = '8'
+	printf("%d", ft_isdigit(i));
+}*/

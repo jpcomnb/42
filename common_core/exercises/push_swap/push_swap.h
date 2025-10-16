@@ -12,7 +12,7 @@
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
-//# include <stdfed.h>
+# include <stddef.h>
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdbool.h>
@@ -68,6 +68,7 @@ void	complete_list_b(t_list *stack_a, t_list *stack_b);
 t_list	*find_cheapest(t_list *stack);
 long	ft_atol(const char *nptr);
 void	*ft_calloc(size_t nmemb, size_t size);
+int		ft_isdigit(int c);
 t_list	*ft_lst_highest(t_list *stack);
 t_list	*ft_lst_smallest(t_list *stack);
 int		ft_lstsize(t_list *lst);
