@@ -12,10 +12,10 @@
 
 #include "../push_swap.h"
 
-void	ft_free_list(list_t **list)
+void	ft_free_list(t_list **list)
 {
-	list_t	**temp;
-	list_t	**node;
+	t_list	**temp;
+	t_list	**node;
 
 	if (!list)
 		return ;
@@ -30,7 +30,7 @@ void	ft_free_list(list_t **list)
 	*list = NULL;
 }
 
-void	ft_free_error(list_t)
+void	ft_free_error(t_list *list)
 {
 	free_stack(&list);
 	write(1, "Error\n", 6);

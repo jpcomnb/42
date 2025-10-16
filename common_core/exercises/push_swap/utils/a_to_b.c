@@ -10,9 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-void	a_to_b(list_t **stack_a, list_t **stack_b)
+#include "../push_swap.h"
+
+void	a_to_b(t_list **stack_a, t_list **stack_b)
 {
-	list_t	*cheapest;
+	t_list	*cheapest;
 
 	cheapest = find_cheapest(*stack_a); 
 	if (cheapest_node->above_median && cheapest_node->target_node->above_median)

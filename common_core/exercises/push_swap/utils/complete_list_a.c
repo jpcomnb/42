@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-void	set_index(list_t *list)
+void	set_index(t_list *list)
 {
 	int	i;
 	int	median;
@@ -34,10 +34,10 @@ void	set_index(list_t *list)
 	
 }
 
-static void	set_target_a(list_t *stack_a, list_t *stack_b)
+static void	set_target_a(t_list *stack_a, t_list *stack_b)
 {
-	list_t	current_b;
-	list_t	target_node;
+	t_list	current_b;
+	t_list	target_node;
 	long	best_match_index;
 
 	while (stack_a)
@@ -61,7 +61,7 @@ static void	set_target_a(list_t *stack_a, list_t *stack_b)
 	}
 }
 
-static void	set_cost__a(list_t *stack_a, list_t *stack_b)
+static void	set_cost__a(t_list *stack_a, t_list *stack_b)
 {
 	int	size_a;
 	int	size_b;
@@ -81,10 +81,10 @@ static void	set_cost__a(list_t *stack_a, list_t *stack_b)
 	}
 }
 
-void	set_cheapest(list_t *stack)
+void	set_cheapest(t_list *stack)
 {
 	long	cheapest_num;
-	list_t	*cheapest_node;
+	t_list	*cheapest_node;
 
 	if (!stack)
 		return ;
@@ -102,7 +102,7 @@ void	set_cheapest(list_t *stack)
 	
 }
 
-void	complete_list_a(list_t *stack_a, list_t *stack_b)
+void	complete_list_a(t_list *stack_a, t_list *stack_b)
 {
 	set_index(a);
 	set_index(b);

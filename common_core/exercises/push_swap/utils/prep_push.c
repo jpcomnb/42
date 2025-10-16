@@ -10,7 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-void	prep_push(list_t **stack, list_t *top_node, char name_stack)
+#include "../push_swap.h"
+
+void	prep_push(t_list **stack, t_list *top_node, char name_stack)
 {
 	while (*stack != top_node)
 	{

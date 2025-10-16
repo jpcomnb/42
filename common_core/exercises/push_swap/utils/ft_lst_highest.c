@@ -10,10 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-list_t	*ft_lst_highest(list_t *stack)
+#include "../push_swap.h"
+
+t_list	*ft_lst_highest(t_list *stack)
 {
 	long	max;
-	list_t	*max_node;
+	t_list	*max_node;
 
 	if (!stack)
 		return (NULL);

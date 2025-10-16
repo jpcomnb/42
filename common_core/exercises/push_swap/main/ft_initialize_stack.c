@@ -12,12 +12,12 @@
 
 #include "../push_swap.h"
 
-static bool	ft_many_init(char **strings, list_t list_a);
-static void	ft_list_add_num(int n, list_t *list_a);
-static void	ft_list_add_num(int n, list_t *list_a);
-static bool	ft_one_init(char *strings, list_t *list_a);
+static bool	ft_many_init(char **strings, t_list list_a);
+static void	ft_list_add_num(int n, t_list *list_a);
+static void	ft_list_add_num(int n, t_list *list_a);
+static bool	ft_one_init(char *strings, t_list *list_a);
 
-bool	ft_initialize_stack(char **strings, list_t list_a)
+bool	ft_initialize_stack(char **strings, t_list list_a)
 {
 	int		num;
 	char	**chars;
@@ -37,7 +37,7 @@ bool	ft_initialize_stack(char **strings, list_t list_a)
 
 }
 
-static bool	ft_many_init(char **strings, list_t list_a)
+static bool	ft_many_init(char **strings, t_list list_a)
 {
 	long 	l;
 	int		i;
@@ -70,9 +70,9 @@ static bool	ft_many_init(char **strings, list_t list_a)
 	}
 }
 
-static void	ft_list_add_num(int n, list_t *list_a)
+static void	ft_list_add_num(int n, t_list *list_a)
 {
-	list_t stack;
+	t_list stack;
 
 	stack = ft_calloc(1, sizeof(list_t));
 	if (!stack)
@@ -82,12 +82,12 @@ static void	ft_list_add_num(int n, list_t *list_a)
 	list_add_back(&list_a, stack);
 }
 
-static bool	ft_one_init(char *strings, list_t *list_a)
+static bool	ft_one_init(char *strings, t_list *list_a)
 {
 	int	i;
 	bool error;
 	int	*array;
-	list_t stack;
+	t_list stack;
 
 	i = 0;
 	array = ft_check_string(strings, &error);

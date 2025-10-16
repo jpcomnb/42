@@ -9,10 +9,13 @@
 /*   Updated: 2025/09/28 20:49:03 by jopedro4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-list_t	*ft_lst_smallest(list_t *stack)
+
+#include "../push_swap.h"
+
+t_list	*ft_lst_smallest(t_list *stack)
 {
 	long	min;
-	list_t	*min_node;
+	t_list	*min_node;
 
 	if (!stack)
 		return (NULL);

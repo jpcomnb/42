@@ -10,7 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-void	min_on_top(list_t **stack_a)
+#include "../push_swap.h"
+
+void	min_on_top(t_list **stack_a)
 {
 	while ((*stack_a)->nbr != find_min(*stack_a)->nbr)
 	{

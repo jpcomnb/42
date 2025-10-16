@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_commands.c                               :+:      :+:    :+:   */
+/*   push_swap_commands_swap.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jopedro4 <jopedro4@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 22:53:19 by jopedro4          #+#    #+#             */
-/*   Updated: 2025/08/23 14:38:52 by jopedro4         ###   ########.fr       */
+/*   Updated: 2025/10/16 20:22:42 by jopedro4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-static void ft_swap(list_t **list)
+static void ft_swap(t_list **list)
 {
-	list_t *temp;
-	list_t *temp2;
+	t_list *temp;
+	t_list *temp2;
 
 	if (list)
 	{
@@ -26,7 +26,7 @@ static void ft_swap(list_t **list)
 	}
 }
 
-void ft_swap_a(list_t **list)
+void ft_swap_a(t_list **list)
 {
 	if (list)
 	{
@@ -35,7 +35,7 @@ void ft_swap_a(list_t **list)
 	}
 }
 
-void ft_swap_b(list_t **list)
+void ft_swap_b(t_list **list)
 {
 	if (list)
 	{
@@ -44,7 +44,7 @@ void ft_swap_b(list_t **list)
 	}
 }
 
-void ft_swap_ab(list_t **list_a, list_t **list_b)
+void ft_swap_ab(t_list **list_a, t_list **list_b)
 {	
 	if (list_a && list_b)
 	{

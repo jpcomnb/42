@@ -6,15 +6,15 @@
 /*   By: jopedro4 <jopedro4@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 19:33:00 by jopedro4          #+#    #+#             */
-/*   Updated: 2025/09/17 23:05:39 by jopedro4         ###   ########.fr       */
+/*   Updated: 2025/10/16 20:25:41 by jopedro4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-list_t list_remove_front(list_t **lst)
+t_list *list_remove_front(t_list **lst)
 {
-	list_t *node;
+	t_list *node;
 
 	if (!lst)
 		return ;
@@ -23,14 +23,14 @@ list_t list_remove_front(list_t **lst)
 	node->prev = (*lst)->prev;
 	(*lst)->next->prev = NULL;
 	free(lst);
-	return (*node);
+	return (node);
 }
 
-list_t list_remove_back(list_t **lst)
+t_list *list_remove_back(t_list **lst)
 {
 	if (lst)
 	{
-		list_t	node;
+		t_list	node;
 		ft_lstlast(lst);
 		node->num = lst->num;
 		node->next = lst->next;
@@ -40,7 +40,7 @@ list_t list_remove_back(list_t **lst)
 	return (node);
 }
 
-void list_add_front(list_t **lst, list_t *node)
+void list_add_front(t_list **lst, t_list *node)
 {
 	if (lst)
 	{
@@ -49,9 +49,9 @@ void list_add_front(list_t **lst, list_t *node)
 	}
 }
 
-void list_add_back(list_t *lst, list_t *node)
+void list_add_back(t_list *lst, t_list *node)
 {
-	list_t	*back;
+	t_list	*back;
 
 	if (lst)
 	{
@@ -67,12 +67,12 @@ void list_add_back(list_t *lst, list_t *node)
 /*
 int	main(void)
 {
-	list_t	*lst;
-	list_t	*node;
+	t_list	*lst;
+	t_list	*node;
 	int	i;
 
 	i = 0;
-	lst = ft_calloc(6, sizeof(list_t));
+	lst = ft_calloc(6, sizeof(t_list));
 	while (i <= 5)
 	{
 		lst->num = i;

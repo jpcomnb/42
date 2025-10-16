@@ -10,7 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-list_t	*find_cheapest(list_t *stack)
+#include "../push_swap.h"
+
+t_list	*find_cheapest(t_list *stack)
 {
 	if (!stack)
 		return (NULL);

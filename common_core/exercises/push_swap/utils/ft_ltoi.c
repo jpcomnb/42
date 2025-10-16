@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-int	ft_ltoi(long	num)
+int	ft_ltoi(long num)
 {
 	if (!num)
 		return ;

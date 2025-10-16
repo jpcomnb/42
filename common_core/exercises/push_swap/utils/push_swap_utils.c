@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-list_t	*ft_lstlast(list_t *lst)
+t_list	*ft_lstlast(t_list *lst)
 {
 	t_list	*current;
 
@@ -24,9 +24,9 @@ list_t	*ft_lstlast(list_t *lst)
 	return (current);
 }
 
-list_t	*ft_lstfirst(list_t *lst)
+t_list	*ft_lstfirst(t_list *lst)
 {
-	list_t	*current;
+	t_list	*current;
 
 	current = lst;
 	if (!current)
@@ -69,7 +69,7 @@ bool	ft_check_char(char *string)
 	return (check);
 }
 
-bool	check_order(list_t *stack)
+bool	check_order(t_list *stack)
 {
 	bool	check;
 

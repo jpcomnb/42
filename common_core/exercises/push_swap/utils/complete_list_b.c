@@ -10,10 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-static void	set_target_b(list_t *stack_a, list_t *stack_b)
+#include "../push_swap.h"
+
+static void	set_target_b(t_list *stack_a, t_list *stack_b)
 {
-	list_t	*a_current;
-	list_t	*target_node;
+	t_list	*a_current;
+	t_list	*target_node;
 	long	best_match_index;
 
 	while (stack_b)
@@ -37,7 +39,7 @@ static void	set_target_b(list_t *stack_a, list_t *stack_b)
 	}
 }
 
-void	complete_list_b(list_t *stack_a, t_stack_node *b)
+void	complete_list_b(t_list *stack_a, t_list *stack_b)
 {
 	set_index(a);
 	set_index(b);

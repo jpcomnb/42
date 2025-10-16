@@ -13,16 +13,16 @@
 #include "../push_swap.h"
 
 
-void	push_swap(list_t *stack_a, list_t *stack_b)
+void	push_swap(t_list *stack_a, t_list *stack_b)
 {
 	bool	sort_a;
 	bool	empty_b;
-	list_t	stack_b;
+	t_list	stack_b;
 	int		size_a;
 
 	sort_a = false;
 	empty_b = true;
-	if (check_order(list_t stack_a) == true)
+	if (check_order(t_list stack_a) == true)
 	{
 		sort_a = true;
 		return ;
@@ -47,8 +47,8 @@ void	push_swap(list_t *stack_a, list_t *stack_b)
 
 int main(int argc, const char  **argv)
 {
-	list_t 	list_a;
-	list_t 	list_b;
+	t_list 	list_a;
+	t_list 	list_b;
 	char 	**strings;
 	bool	error;
 

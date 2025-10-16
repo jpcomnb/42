@@ -10,12 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../push_swap.h"
 
-int	ft_lstsize(list_t *lst)
+int	ft_lstsize(t_list *lst)
 {
 	int		i;
-	list_t	*current;
+	t_list	*current;
 
 	i = 0;
 	current = lst;

@@ -12,7 +12,7 @@
 
 #include "../push_swap.h"
 
-void	b_to_a(list_t **stack_a, list_t **stack_b)
+void	b_to_a(t_list **stack_a, t_list **stack_b)
 {
 	prep_push(stack_a, (*stack_b)->target_node, 'a');
 	ft_push_a(stack_a, stack_b,); 

@@ -12,9 +12,9 @@
 
 #include "../push_swap.h"
 
-static void	ft_sort_small1(list_t **lst)
+static void	ft_sort_small1(t_list **lst)
 {
-	list_t temp;
+	t_list temp;
 			temp = list_remove_back(lst);
 			list_add_front(lst, temp);
 			write(1, "rra\n", 4);
@@ -24,19 +24,19 @@ static void	ft_sort_small1(list_t **lst)
 			list_add_front(lst, temp);
 			write(1, "sa\n", 3);
 }
-static void ft_sort_small2(list_t **lst)
+static void ft_sort_small2(t_list **lst)
 {
-	list_t temp;
+	t_list temp;
 
 	temp = list_remove_back(lst);
 	list_add_front(lst, temp);
 	write(1, "rra\n", 4);
 }
 
-void	ft_sort_small(list_t **lst)
+void	ft_sort_small(t_list **lst)
 {
-	list_t	temp;
-	list_t	temp2;
+	t_list	temp;
+	t_list	temp2;
 
 	if (ft_lstsize(lst) <= 3 && !check_sort(lst))
 	{
