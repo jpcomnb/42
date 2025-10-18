@@ -12,16 +12,21 @@
 
 CC = cc -Wall -Werror -Wextra
 
+#commands
 SRCS = ./commands/push_swap_commands_push.c
 SRCS += ./commands/push_swap_commands_reverse_rotate.c
 SRCS += ./commands/push_swap_commands_rotate.c
 SRCS += ./commands/push_swap_commands_swap.c
 SRCS += ./commands/push_swap_commands_utils.c
+#errors
 SRCS += ./errors/ft_check_string.c
 SRCS += ./errors/push_swap_error.c
+#main
+SRCS += ./main/check_duplicate.c
 SRCS += ./main/ft_initialize_stack.c
 SRCS += ./main/ft_sort_small.c
 SRCS += ./main/push_swap.c
+#utils
 SRCS += ./utils/a_to_b.c
 SRCS += ./utils/b_to_a.c
 SRCS += ./utils/complete_list_a.c
@@ -29,15 +34,19 @@ SRCS += ./utils/complete_list_b.c
 SRCS += ./utils/find_cheapest.c
 SRCS += ./utils/ft_atoi.c
 SRCS += ./utils/ft_atol.c
+SRCS += ./utils/ft_bzero.c
 SRCS += ./utils/ft_calloc.c
+SRCS += ./utils/ft_isdigit.c
 SRCS += ./utils/ft_lst_highest.c
-SRCS += ./utils/ft_lst_lowest.c
-SRCS += ./utils/ft_lstsize_bonus.c
+SRCS += ./utils/ft_lstsize.c
+SRCS += ./utils/ft_lst_smallest.c
 SRCS += ./utils/ft_ltoi.c
 SRCS += ./utils/ft_split.c
+SRCS += ./utils/ft_substr.c
+SRCS += ./utils/min_on_top.c
 SRCS += ./utils/prep_push.c
 SRCS += ./utils/push_swap_utils.c
-SRCS += ./utils/small_to_top.c
+
 
 
 OBJS = $(SRCS:.c=.o)

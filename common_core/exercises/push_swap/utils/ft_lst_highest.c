@@ -6,7 +6,7 @@
 /*   By: jopedro4 <jopedro4@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/28 20:12:02 by jopedro4          #+#    #+#             */
-/*   Updated: 2025/09/28 20:24:48 by jopedro4         ###   ########.fr       */
+/*   Updated: 2025/10/19 00:19:33 by jopedro4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ t_list	*ft_lst_highest(t_list *stack)
 	max = LONG_MIN;
 	while (stack)
 	{
-		if (stack->nbr > max)
+		if (stack->num > max)
 		{
-			max = stack->nbr;
+			max = stack->num;
 			max_node = stack;
 		}
 		stack = stack->next;

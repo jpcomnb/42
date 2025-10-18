@@ -15,7 +15,8 @@
 int	ft_ltoi(long num)
 {
 	if (!num)
-		return ;
-	if (num < INT_MAX && num > INT_MIN)
-		return((int)num);
+		return (0);
+	if (num > INT_MAX && num < INT_MIN)
+		return (0);
+	return((int)num);
 }

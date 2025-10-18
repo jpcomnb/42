@@ -6,7 +6,7 @@
 /*   By: jopedro4 <jopedro4@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/05 19:05:59 by jopedro4          #+#    #+#             */
-/*   Updated: 2025/10/16 20:36:43 by jopedro4         ###   ########.fr       */
+/*   Updated: 2025/10/19 00:11:10 by jopedro4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <stdbool.h>
 # include <stdio.h>
 # include <limits.h>
+# include <stdint.h>
 
 typedef struct	s_list
 {
@@ -55,6 +56,7 @@ void	ft_free_list(t_list **list);
 void	ft_free_error(t_list *list);
 void	ft_error_nfree();
 //main
+bool  check_duplicate(t_list *list_a);
 void	push_swap(t_list *stack_a, t_list *stack_b);
 bool	ft_initialize_stack(char **strings, t_list list_a);
 void	ft_sort_small(t_list **lst);
@@ -67,6 +69,7 @@ void	set_index(t_list *list);
 void	complete_list_b(t_list *stack_a, t_list *stack_b);
 t_list	*find_cheapest(t_list *stack);
 long	ft_atol(const char *nptr);
+void	ft_bzero(void *s, size_t n);
 void	*ft_calloc(size_t nmemb, size_t size);
 int		ft_isdigit(int c);
 t_list	*ft_lst_highest(t_list *stack);
@@ -74,11 +77,12 @@ t_list	*ft_lst_smallest(t_list *stack);
 int		ft_lstsize(t_list *lst);
 int		ft_ltoi(long num);
 char	**ft_split(char const *s, char c);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
+void	min_on_top(t_list **stack_a);
 void	prep_push(t_list **stack, t_list *top_node, char name_stack);
 bool	check_order(t_list *stack);
 bool	ft_check_char(char *string);
 size_t	ft_strlen(const char *c);
 t_list	*ft_lstfirst(t_list *lst);
 t_list	*ft_lstlast(t_list *lst);
-void	min_on_top(t_list **stack_a);
 #endif
