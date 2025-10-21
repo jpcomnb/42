@@ -44,6 +44,8 @@ bool	check_duplicate(t_list *list_a)
 	start = 0;
 	size = ft_lstsize(list_a);
 	array = ft_calloc(size, sizeof(int));
+	if (!array)
+		return (NULL);
 	while (start < size)
 	{
 		array[start] = list_a->num;
