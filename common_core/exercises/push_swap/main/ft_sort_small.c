@@ -41,13 +41,14 @@ void	ft_sort_small(t_list **lst)
 	if (ft_lstsize(*lst) <= 3 && !check_order(*lst))
 	{
 		if ((*lst)->num < (*lst)->next->num && (*lst)->next->num > \
-			 (*lst)->next->next->num && (*lst)->num < (*lst)->next->next->num)
+			 (*lst)->next->next->num && \
+			 (*lst)->num < (*lst)->next->next->num)
 			ft_sort_small1(lst);
-		if ((*lst)->num < (*lst)->next->num && \
+		else if ((*lst)->num < (*lst)->next->num && \
 		 (*lst)->next->num > (*lst)->next->next->num \
 		&& (*lst)->num > (*lst)->next->next->num)
 			ft_sort_small2(lst);
-		if ((*lst)->num > (*lst)->next->num && \
+		else if ((*lst)->num > (*lst)->next->num && \
 			(*lst)->num < (*lst)->next->next->num && \
 			(*lst)->next->num > (*lst)->next->next->num)
 			ft_swap_a(lst);

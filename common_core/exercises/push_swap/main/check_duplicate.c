@@ -12,34 +12,36 @@
 
 #include "../push_swap.h"
 
-static bool	check_duplicate_util(t_list *list_a, int size, int *array)
+static bool	check_duplicate_util(int *array, int size)
 {
 	int		times;
 	int		start;
+	int		index;
 
 	start = 0;
 	times = size;
-	while (times-- > 0)
+	index = 0;
+	while (times--)
 	{
 		start = 0;
-		list_a = ft_lstfirst(list_a);
 		while (start < size)
 		{
-			if (array[start] == list_a->num)
-					return (true);
-			list_a = list_a->next;
+			if (array[start] == array[index] && index != start)
+				return (true);
+			start++;
 		}
-		start++;
+		times--;
+		index++;
 	}
 	return (false);
 }
 
 bool	check_duplicate(t_list *list_a)
 {
-	int	size;
-	int	start;
-	int	*array;
-	bool error;
+	int		size;
+	int		start;
+	int		*array;
+	bool 	error;
 	
 	start = 0;
 	size = ft_lstsize(list_a);
@@ -52,6 +54,7 @@ bool	check_duplicate(t_list *list_a)
 		start++;
 		list_a = list_a->next;
 	}
-	error = check_duplicate_util(list_a, size, array);
+	error = check_duplicate_util(array, size);
+	free(array);
 	return (error);
 }

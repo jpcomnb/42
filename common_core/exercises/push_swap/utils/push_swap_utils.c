@@ -26,6 +26,8 @@ t_list	*ft_lstfirst(t_list *lst)
 {
 	t_list	*current;
 
+	if (!lst)
+        return (NULL);
 	current = lst;
 	while (current->prev != NULL)
 		current = current->prev;
@@ -55,9 +57,9 @@ bool	ft_check_char(char *string)
 		b = ft_strlen(string);
 		while (i < b)
 		{	
-			if ((string[i] >= '0' && string[i] <= '9') \
-				&& ((string[i] >= 9 && string[i] <= 13) \
-				&& string[i] == 27))
+			if ((string[i] <= '0' && string[i] >= '9') \
+				&& (!(string[i] >= 9 && string[i] <= 13) \
+				|| !(string[i] == 27)))
 			{
 				check = true;
 			}
@@ -71,14 +73,14 @@ bool	check_order(t_list *stack)
 {
 	bool	check;
 
-	if (!stack)
-		return (NULL);
 	check = false;
-	while (stack->next != NULL && stack->num <= stack->next->num)
-	{	
+	if (!stack)
+		return (check);
+	while (stack->next != NULL)
+	{
+		if (stack->num > stack->next->num)
+			return (false);
 		stack = stack->next;
 	}
-	if (stack->next == NULL)
-		check = true;
-	return (check);
+	return (true);
 }

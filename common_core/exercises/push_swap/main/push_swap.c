@@ -27,22 +27,19 @@ void	push_swap(t_list *stack_a, t_list *stack_b)
 		return ;
 	}
 	size_a = ft_lstsize(stack_a);
-	while (sort_a == false && empty_b == false)
+	while (size_a-- >  3 && !check_order(stack_a))
 	{
-		while (size_a-- >  3 && !check_order(stack_a))
-		{
-			complete_list_a(stack_a, stack_b);
-			a_to_b(&stack_a, &stack_b);
-		}
-		ft_sort_small(&stack_a);
-		while (stack_b != NULL)
-		{
-			complete_list_b(stack_a, stack_b);
-			b_to_a(&stack_a, &stack_b);
-		}
-		set_index(stack_a);
-		min_to_top(&stack_a);
+		complete_list_a(stack_a, stack_b);
+		a_to_b(&stack_a, &stack_b);
 	}
+	ft_sort_small(&stack_a);
+	while (stack_b != NULL)
+	{
+		complete_list_b(stack_a, stack_b);
+		b_to_a(&stack_a, &stack_b);
+	}
+	set_index(stack_a);
+	min_to_top(&stack_a);
 }
 
 int main(int argc, char  **argv)
@@ -63,7 +60,7 @@ int main(int argc, char  **argv)
 		else if (ft_lstsize(list_a) == 3)
 			ft_sort_small(&list_a);
 		else
-			push_swap(list_a, list_b);
+			push_swap(&list_a, &list_b);
 	}
 	ft_free_list(&list_a);
 	return (0);
