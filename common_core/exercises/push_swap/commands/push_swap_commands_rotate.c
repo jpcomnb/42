@@ -19,7 +19,7 @@ static void ft_rotate(t_list **list)
 	if (list)
 	{
 		temp = list_remove_front(list);
-		list_add_back(*list, temp);
+		list_add_back(list, temp);
 	}
 }
 

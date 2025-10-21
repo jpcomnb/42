@@ -53,19 +53,19 @@ void list_add_front(t_list **lst, t_list *node)
 	}
 }
 
-void list_add_back(t_list *lst, t_list *node)
+void list_add_back(t_list **lst, t_list *node)
 {
 	t_list	*back;
 
 	if (lst)
 	{
-		if (node)
+		if (*lst)
 		{
-			back = ft_lstlast(lst);
+			back = ft_lstlast(*lst);
 			back->next = node;
 		}
 		else
-			*lst = *node;
+			*lst = node;
 	}	
 }
 /*

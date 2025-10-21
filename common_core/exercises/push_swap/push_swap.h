@@ -49,7 +49,7 @@ void ft_swap_ab(t_list **list_a, t_list **list_b);
 t_list *list_remove_front(t_list **lst);
 t_list *list_remove_back(t_list **lst);
 void list_add_front(t_list **lst, t_list *node);
-void list_add_back(t_list *lst, t_list *node);
+void list_add_back(t_list **lst, t_list *node);
 //errors
 int	*ft_check_string(char *string, bool *error);
 void	ft_free_list(t_list **list);
@@ -58,7 +58,7 @@ void	ft_error_nfree();
 //main
 bool  check_duplicate(t_list *list_a);
 void	push_swap(t_list *stack_a, t_list *stack_b);
-bool	ft_initialize_stack(char **strings, t_list list_a);
+bool	ft_initialize_stack(char **strings, t_list *list_a);
 void	ft_sort_small(t_list **lst);
 //utils
 void	a_to_b(t_list **stack_a, t_list **stack_b);
@@ -77,9 +77,10 @@ t_list	*ft_lst_smallest(t_list *stack);
 int		ft_lstsize(t_list *lst);
 int		ft_ltoi(long num);
 char	**ft_split(char const *s, char c);
+char	*ft_strdup(const char *s);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
-void	min_on_top(t_list **stack_a);
-void	prep_push(t_list **stack, t_list *top_node, char name_stack);
+void	min_to_top(t_list **stack_a);
+void	prep_push(t_list **stack, t_list *top, char name_stack);
 bool	check_order(t_list *stack);
 bool	ft_check_char(char *string);
 size_t	ft_strlen(const char *c);

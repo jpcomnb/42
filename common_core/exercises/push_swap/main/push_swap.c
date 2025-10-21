@@ -41,7 +41,7 @@ void	push_swap(t_list *stack_a, t_list *stack_b)
 			b_to_a(&stack_a, &stack_b);
 		}
 		set_index(stack_a);
-		min_on_top(&stack_a);
+		min_to_top(&stack_a);
 	}
 }
 
@@ -55,7 +55,7 @@ int main(int argc, char  **argv)
 	list_b = NULL;
 	if (argc == 1 || (argc == 2 && !argv[1][0]))
 		return (0);
-	error = ft_initialize_stack(argv, *list_a);
+	error = ft_initialize_stack(argv, list_a);
 	if (!check_order(list_a) && !error)
 	{
 		if (ft_lstsize(list_a) == 2)

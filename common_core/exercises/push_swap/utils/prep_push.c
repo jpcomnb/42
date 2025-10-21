@@ -12,20 +12,20 @@
 
 #include "../push_swap.h"
 
-void	prep_push(t_list **stack, t_list *top_node, char name_stack)
+void	prep_push(t_list **stack, t_list *top, char name_stack)
 {
-	while (*stack != top_node)
+	while (*stack != top)
 	{
-		if (stack_name == 'a')
+		if (name_stack == 'a')
 		{
-			if (top_node->above_median)
+			if (top->over_median)
 				ft_rotate_a(stack);
 			else
-				reverse_rotate_a(stack);
+				ft_reverse_rotate_a(stack);
 		}
-		else if (stack_name == 'b')
+		else if (name_stack == 'b')
 		{
-			if (top_node->above_median)
+			if (top->over_median)
 				ft_rotate_b(stack);
 			else
 				ft_reverse_rotate_b(stack);

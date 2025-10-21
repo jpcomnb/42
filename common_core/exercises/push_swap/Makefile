@@ -6,11 +6,11 @@
 #    By: jopedro4 <jopedro4@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/25 21:11:35 by jopedro4          #+#    #+#              #
-#    Updated: 2025/10/16 20:10:16 by jopedro4         ###   ########.fr        #
+#    Updated: 2025/10/21 19:23:12 by jopedro4         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC = cc -Wall -Werror -Wextra
+CC = cc -Wall -Werror -Wextra -g
 
 #commands
 SRCS = ./commands/push_swap_commands_push.c
@@ -42,8 +42,9 @@ SRCS += ./utils/ft_lstsize.c
 SRCS += ./utils/ft_lst_smallest.c
 SRCS += ./utils/ft_ltoi.c
 SRCS += ./utils/ft_split.c
+SRCS += ./utils/ft_strdup.c
 SRCS += ./utils/ft_substr.c
-SRCS += ./utils/min_on_top.c
+SRCS += ./utils/min_to_top.c
 SRCS += ./utils/prep_push.c
 SRCS += ./utils/push_swap_utils.c
 
@@ -59,7 +60,7 @@ $(NAME): $(OBJS)
 	$(CC) $(OBJS) -o $(NAME)
 
 %.o: %.c
-	$(CC) -c $<
+	$(CC) -c $< -o $@
 
 
 clean:

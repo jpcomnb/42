@@ -6,33 +6,32 @@
 /*   By: jopedro4 <jopedro4@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 16:33:38 by jopedro4          #+#    #+#             */
-/*   Updated: 2025/10/18 17:43:56 by jopedro4         ###   ########.fr       */
+/*   Updated: 2025/10/21 20:04:09 by jopedro4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-static bool	ft_many_init(char **strings, t_list *list_a);
-static void	ft_list_add_num(int n, t_list *list_a);
-static void	ft_list_add_num(int n, t_list *list_a);
+static bool	ft_many_init(char **strings, t_list **list_a);
+static void	ft_list_add_num(int n, t_list **list_a);
 static bool	ft_one_init(char *strings, t_list *list_a);
 
-bool	ft_initialize_stack(char **strings, t_list list_a)
+bool	ft_initialize_stack(char **strings, t_list *list_a)
 {
 	bool	error;
 
 	if (!strings)
 		return (NULL);
-	if (strings[3])
+	if (strings[2])
 		error = ft_many_init(strings, &list_a);
 	else
-		error = ft_one_init(strings[2], &list_a);
-	error = check_duplicate(&list_a);
+		error = ft_one_init(strings[2], list_a);
+	error = check_duplicate(list_a);
 	return (error);
 
 }
 
-static bool	ft_many_init(char **strings, t_list *list_a)
+static bool	ft_many_init(char **strings, t_list **list_a)
 {
 	long 	l;
 	int		i;
@@ -66,7 +65,7 @@ static bool	ft_many_init(char **strings, t_list *list_a)
 	return (error);
 }
 
-static void	ft_list_add_num(int n, t_list *list_a)
+static void	ft_list_add_num(int n, t_list **list_a)
 {
 	t_list *stack;
 
@@ -80,15 +79,15 @@ static void	ft_list_add_num(int n, t_list *list_a)
 
 static bool	ft_one_init(char *strings, t_list *list_a)
 {
-	int	i;
-	bool error;
-	int	*array;
+	int		i;
+	bool 	error;
+	int		*array;
 
 	i = 0;
 	array = ft_check_string(strings, &error);
 	while (strings[i])
 	{
-		ft_list_add_num(array[i], list_a);
+		ft_list_add_num(array[i], &list_a);
 		i++;
 	}
 	return (error);
