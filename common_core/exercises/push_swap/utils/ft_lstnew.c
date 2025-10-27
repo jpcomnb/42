@@ -1,21 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   b_to_a.c                                           :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jopedro4 <jopedro4@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: jopedro4 <jopedro4@student.42porto.co      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/12 20:27:15 by jopedro4          #+#    #+#             */
-/*   Updated: 2025/10/18 21:50:38 by jopedro4         ###   ########.fr       */
+/*   Created: 2025/04/20 18:36:09 by jopedro4          #+#    #+#             */
+/*   Updated: 2025/04/23 20:12:18 by jopedro4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	b_to_a(t_list **stack_a, t_list **stack_b)
+t_list	*ft_lstnew(void *content)
 {
-	if (!stack_b || !*stack_b)
-		return ;
-	prep_push(stack_a, (*stack_b)->target_node, 'a');
-	ft_push_a(stack_a, stack_b);
+	t_list	*new;
+
+	new = malloc(sizeof(t_list));
+	if (!new)
+		return (NULL);
+	new->num = *(int *)content;
+	new->next = NULL;
+	new->prev = NULL;
+	new->target_node = NULL;
+	return (new);
 }

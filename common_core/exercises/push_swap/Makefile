@@ -38,6 +38,7 @@ SRCS += ./utils/ft_bzero.c
 SRCS += ./utils/ft_calloc.c
 SRCS += ./utils/ft_isdigit.c
 SRCS += ./utils/ft_lst_highest.c
+SRCS += ./utils/ft_lstnew.c
 SRCS += ./utils/ft_lstsize.c
 SRCS += ./utils/ft_lst_smallest.c
 SRCS += ./utils/ft_ltoi.c

@@ -18,15 +18,14 @@ static bool	check_duplicate_util(int *array, int size)
 	int		start;
 	int		index;
 
-	start = 0;
 	times = size;
 	index = 0;
-	while (times--)
+	while (times-- > 0)
 	{
-		start = 0;
+		start = index + 1;
 		while (start < size)
 		{
-			if (array[start] == array[index] && index != start)
+			if (array[start] == array[index])
 				return (true);
 			start++;
 		}
@@ -45,7 +44,7 @@ bool	check_duplicate(t_list *list_a)
 	
 	start = 0;
 	size = ft_lstsize(list_a);
-	array = ft_calloc(size, sizeof(int));
+	array = ft_calloc(size + 1, sizeof(int));
 	if (!array)
 		return (NULL);
 	while (start < size)

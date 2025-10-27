@@ -14,8 +14,6 @@
 
 t_list	*find_cheapest(t_list *stack)
 {
-	if (!stack)
-		return (NULL);
 	while (stack)
 	{
 		if (stack->cheapest)

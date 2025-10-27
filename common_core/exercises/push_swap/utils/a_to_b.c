@@ -32,7 +32,7 @@ void	a_to_b(t_list **stack_a, t_list **stack_b)
 {
 	t_list	*cheapest;
 
-	cheapest = find_cheapest(*stack_a); 
+	cheapest = find_cheapest(*stack_a);
 	if (cheapest->over_median && cheapest->target_node->over_median)
 		rotate_ab_p(stack_a, stack_b, cheapest);
 	else if (!(cheapest->over_median) && !(cheapest->target_node->over_median))

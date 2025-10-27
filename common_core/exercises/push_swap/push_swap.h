@@ -57,8 +57,8 @@ void	ft_free_error(t_list *list);
 void	ft_error_nfree();
 //main
 bool  check_duplicate(t_list *list_a);
-void	push_swap(t_list *stack_a, t_list *stack_b);
-bool	ft_initialize_stack(char **strings, t_list *list_a);
+void	push_swap(t_list **stack_a, t_list **stack_b);
+bool	ft_initialize_stack(char **strings, t_list **list_a);
 void	ft_sort_small(t_list **lst);
 //utils
 void	a_to_b(t_list **stack_a, t_list **stack_b);
@@ -73,6 +73,7 @@ void	ft_bzero(void *s, size_t n);
 void	*ft_calloc(size_t nmemb, size_t size);
 int		ft_isdigit(int c);
 t_list	*ft_lst_highest(t_list *stack);
+t_list	*ft_lstnew(void *content);
 t_list	*ft_lst_smallest(t_list *stack);
 int		ft_lstsize(t_list *lst);
 int		ft_ltoi(long num);

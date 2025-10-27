@@ -13,7 +13,7 @@
 #include "../push_swap.h"
 
 
-void	push_swap(t_list *stack_a, t_list *stack_b)
+void	push_swap(t_list **stack_a, t_list **stack_b)
 {
 	bool	sort_a;
 	bool	empty_b;
@@ -21,25 +21,29 @@ void	push_swap(t_list *stack_a, t_list *stack_b)
 
 	sort_a = false;
 	empty_b = true;
-	if (check_order(stack_a) == true)
+	if (check_order(*stack_a) == true)
 	{
 		sort_a = true;
 		return ;
 	}
-	size_a = ft_lstsize(stack_a);
-	while (size_a-- >  3 && !check_order(stack_a))
+	size_a = ft_lstsize(*stack_a);
+	if (size_a-- > 3 && !check_order(*stack_a))
+		ft_push_b(stack_b, stack_a);
+	if (size_a-- > 3 && !check_order(*stack_a))
+		ft_push_b(stack_b, stack_a);
+	while (size_a-- >  3 && !check_order(*stack_a))
 	{
-		complete_list_a(stack_a, stack_b);
-		a_to_b(&stack_a, &stack_b);
+		complete_list_a(*stack_a, *stack_b);
+		a_to_b(stack_a, stack_b);
 	}
-	ft_sort_small(&stack_a);
+	ft_sort_small(stack_a);
 	while (stack_b != NULL)
 	{
-		complete_list_b(stack_a, stack_b);
-		b_to_a(&stack_a, &stack_b);
+		complete_list_b(*stack_a, *stack_b);
+		b_to_a(stack_a, stack_b);
 	}
-	set_index(stack_a);
-	min_to_top(&stack_a);
+	set_index(*stack_a);
+	min_to_top(stack_a);
 }
 
 int main(int argc, char  **argv)
@@ -52,7 +56,7 @@ int main(int argc, char  **argv)
 	list_b = NULL;
 	if (argc == 1 || (argc == 2 && !argv[1][0]))
 		return (0);
-	error = ft_initialize_stack(argv, list_a);
+	error = ft_initialize_stack(argv, &list_a);
 	if (!check_order(list_a) && !error)
 	{
 		if (ft_lstsize(list_a) == 2)

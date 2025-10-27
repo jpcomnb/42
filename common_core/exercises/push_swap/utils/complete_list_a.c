@@ -38,22 +38,22 @@ static void	set_target_a(t_list *stack_a, t_list *stack_b)
 {
 	t_list	*current_b;
 	t_list	*target_node;
-	long	best_match_index;
+	long	best_match;
 
 	while (stack_a)
 	{
-		best_match_index = LONG_MIN;
+		best_match = LONG_MIN;
 		current_b = stack_b;
-		while (current_b != NULL)
+		while (current_b)
 		{
-			if (current_b->num < stack_a->num && current_b->num > best_match_index)
+			if (current_b->num < stack_a->num && current_b->num > best_match)
 			{
-				best_match_index = current_b->num;
+				best_match = current_b->num;
 				target_node = current_b;
 			}
 			current_b = current_b->next;
 		}
-		if (best_match_index == LONG_MIN)
+		if (best_match == LONG_MIN)
 			stack_a->target_node = ft_lst_highest(stack_b);
 		else
 			stack_a->target_node = target_node;
@@ -85,10 +85,18 @@ void	set_cheapest(t_list *stack)
 {
 	long	cheapest_num;
 	t_list	*cheapest_node;
+	t_list	*temp;
 
 	if (!stack)
 		return ;
+	temp = stack;
+	while (temp)
+	{
+		temp->cheapest = false;
+		temp= temp->next;
+	}
 	cheapest_num = LONG_MAX;
+	cheapest_node = NULL;
 	while (stack)
 	{
 		if (stack->cost < cheapest_num)

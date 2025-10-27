@@ -16,17 +16,17 @@ static bool	ft_many_init(char **strings, t_list **list_a);
 static void	ft_list_add_num(int n, t_list **list_a);
 static bool	ft_one_init(char *strings, t_list *list_a);
 
-bool	ft_initialize_stack(char **strings, t_list *list_a)
+bool	ft_initialize_stack(char **strings, t_list **list_a)
 {
 	bool	error;
 
 	if (!strings)
 		return (NULL);
 	if (strings[2])
-		error = ft_many_init(strings, &list_a);
+		error = ft_many_init(strings, list_a);
 	else
-		error = ft_one_init(strings[2], &list_a);
-	error = check_duplicate(list_a);
+		error = ft_one_init(strings[2], *list_a);
+	error = check_duplicate(*list_a);
 	return (error);
 
 }
@@ -77,7 +77,7 @@ static void	ft_list_add_num(int n, t_list **list_a)
 	list_add_back(list_a, stack);
 }
 
-static bool	ft_one_init(char *strings, t_list **list_a)
+static bool	ft_one_init(char *strings, t_list *list_a)
 {
 	int		i;
 	bool 	error;

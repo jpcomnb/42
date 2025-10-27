@@ -15,15 +15,20 @@
 t_list *list_remove_front(t_list **lst)
 {
 	t_list *node;
+	t_list *first_node;
 
-	node = NULL;
-	if (!lst)
-		return (NULL) ;
-	node->num = (*lst)->num;
-	node->next = (*lst)->next;
-	node->prev = (*lst)->prev;
-	(*lst)->next->prev = NULL;
-	free(lst);
+	if (!lst || !*lst)
+		return (NULL);
+	first_node = *lst;
+	node = ft_lstnew(&first_node->num);
+	if (!node)
+		return (NULL);
+	*lst = first_node->next;
+	if (*lst)
+		(*lst)->prev = NULL;
+	free(first_node);
+	node->next = NULL;
+	node->prev = NULL;
 	return (node);
 }
 
@@ -32,41 +37,51 @@ t_list *list_remove_back(t_list **lst)
 	t_list	*node;
 	t_list	*end_node;
 	
-	node = NULL;
-	if (lst)
-	{
-		end_node = ft_lstlast(*lst);
-		node->num = end_node->num;
-		node->next = end_node->next;
-		node->prev = end_node->prev;
-		free(lst);
-	}
+	if (!lst || !*lst)
+		return (NULL);
+	end_node = ft_lstlast(*lst);
+	node = ft_lstnew(&end_node->num);
+	if (!node)
+		return (NULL);
+	if (end_node->prev)
+		end_node->prev->next=NULL;
+	else
+		*lst = NULL;
+	free(end_node);
+	node->next = NULL;
+	node->prev = NULL;
 	return (node);
 }
 
 void list_add_front(t_list **lst, t_list *node)
 {
-	if (lst)
-	{
-		node->next = *lst;
-		*lst = node;
-	}
+	if (!lst || !node)
+		return ;
+	node->next = *lst;
+	node->prev = NULL;
+	if (*lst)
+		(*lst)->prev = node;
+	*lst = node;
 }
 
 void list_add_back(t_list **lst, t_list *node)
 {
 	t_list	*back;
 
-	if (lst)
+	if (!lst || !node)
+		return ;
+	if (*lst)
 	{
-		if (*lst)
-		{
-			back = ft_lstlast(*lst);
-			back->next = node;
-		}
-		else
+		
+		back = ft_lstlast(*lst);
+		back->next = node;
+		node->prev = back;
+	}
+	else
+	{
 			*lst = node;
-	}	
+			node->prev = NULL;
+	}
 }
 /*
 int	main(void)
