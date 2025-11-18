@@ -15,17 +15,8 @@
 
 void	push_swap(t_list **stack_a, t_list **stack_b)
 {
-	bool	sort_a;
-	bool	empty_b;
 	int		size_a;
 
-	sort_a = false;
-	empty_b = true;
-	if (check_order(*stack_a) == true)
-	{
-		sort_a = true;
-		return ;
-	}
 	size_a = ft_lstsize(*stack_a);
 	if (size_a-- > 3 && !check_order(*stack_a))
 		ft_push_b(stack_b, stack_a);
@@ -37,7 +28,7 @@ void	push_swap(t_list **stack_a, t_list **stack_b)
 		a_to_b(stack_a, stack_b);
 	}
 	ft_sort_small(stack_a);
-	while (stack_b != NULL)
+	while (ft_lstsize(*stack_b))
 	{
 		complete_list_b(*stack_a, *stack_b);
 		b_to_a(stack_a, stack_b);
